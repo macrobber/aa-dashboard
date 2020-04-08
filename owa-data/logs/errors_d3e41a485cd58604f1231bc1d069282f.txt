@@ -1,0 +1,84 @@
+09:26:34 2020-04-05 2908 [debug_log] Starting installation of module: base 
+09:26:34 2020-04-05 2908 [debug_log] owa_request Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_session Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_document Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_feed_request Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_click Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_ua Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_referer Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_site Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_visitor Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_host Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_exit Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_os Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_impression Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_configuration Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_user Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_domstream Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_action_fact Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_search_term_dim Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_ad_dim Table Created. 
+09:26:34 2020-04-05 2908 [debug_log] owa_source_dim Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] owa_campaign_dim Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] owa_location_dim Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] owa_commerce_transaction_fact Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] owa_commerce_line_item_fact Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] owa_queue_item Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] owa_site_user Table Created. 
+09:26:35 2020-04-05 2908 [debug_log] Post install proceadure was a success. 
+09:26:35 2020-04-05 2908 [debug_log] Module base activated 
+09:26:35 2020-04-05 2908 [debug_log] Installation complete. 
+09:26:35 2020-04-05 2908 [debug_log] Checking for existence of default site. 
+09:26:35 2020-04-05 2908 [debug_log] Created default site. 
+09:26:35 2020-04-05 2908 [debug_log] Install Complete Flag added to configuration 
+09:35:24 2020-04-05 7232 [debug_log] Configuration changes saved to database. 
+12:56:46 2020-04-05 8972 [debug_log] Starting installation of module: domstream 
+12:56:46 2020-04-05 8972 [debug_log] Post install proceadure was a success. 
+12:56:46 2020-04-05 8972 [debug_log] Module domstream activated 
+12:56:46 2020-04-05 8972 [debug_log] Installation complete. 
+12:56:52 2020-04-05 7245 [debug_log] Starting installation of module: maxmind_geoip 
+12:56:52 2020-04-05 7245 [debug_log] Post install proceadure was a success. 
+12:56:52 2020-04-05 7245 [debug_log] Module maxmind_geoip activated 
+12:56:52 2020-04-05 7245 [debug_log] Installation complete. 
+12:56:58 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:56:59 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:57:00 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:57:13 2020-04-05 8972 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:57:13 2020-04-05 8972 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:57:14 2020-04-05 8972 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:57:15 2020-04-05 8972 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:59:47 2020-04-05 7229 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+12:59:57 2020-04-05 7245 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:09 2020-04-05 9440 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:09 2020-04-05 9440 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:21 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:21 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:23 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:25 2020-04-05 8749 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:26 2020-04-05 9978 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:28 2020-04-05 9721 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:28 2020-04-05 9978 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:29 2020-04-05 9721 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:30 2020-04-05 9440 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:00:48 2020-04-05 9978 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+13:01:41 2020-04-05 7245 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+18:17:24 2020-04-05 26526 [debug_log] Starting installation of module: remoteQueue 
+18:17:24 2020-04-05 26526 [debug_log] Post install proceadure was a success. 
+18:17:24 2020-04-05 26526 [debug_log] Module remoteQueue activated 
+18:17:24 2020-04-05 26526 [debug_log] Installation complete. 
+18:17:31 2020-04-05 7245 [debug_log] Starting installation of module: hello 
+18:17:31 2020-04-05 7245 [debug_log] Post install proceadure was a success. 
+18:17:31 2020-04-05 7245 [debug_log] Module hello activated 
+18:17:31 2020-04-05 7245 [debug_log] Installation complete. 
+08:20:34 2020-04-06 1006 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+15:51:21 2020-04-06 996 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+07:26:56 2020-04-07 1073 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+11:07:09 2020-04-07 1111 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:40:57 2020-04-08 1007 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:40:58 2020-04-08 1007 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:40:59 2020-04-08 1007 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:41:00 2020-04-08 1007 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:41:00 2020-04-08 1007 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:41:16 2020-04-08 3984 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:41:17 2020-04-08 3984 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
+10:41:18 2020-04-08 3984 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
