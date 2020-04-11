@@ -14,7 +14,7 @@
                 <table width="100%">
                     <TR>
                         <TD class="">
-                            <img src="<?php echo $this->makeImageLink('base/i/owa_logo_150w.jpg'); ?>" alt="Open Web Analytics"><BR>
+                            <img src="<?php echo $this->makeImageLink('base/i/cropped-agis-10-4-150x117-1.png'); ?>" alt="Open Web Analytics"><BR>
                         </TD>
                     </TR>
                 </table>

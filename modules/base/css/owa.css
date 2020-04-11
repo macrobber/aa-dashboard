@@ -7,6 +7,37 @@ legend {font-size:16px;font-weight:bold;}
 fieldset{margin: 7px; padding: 20px; border:1px solid #cccccc;}
 div {margin:0;}
 
+
+.owa a {
+    color: #6b687d !important;
+}
+
+.owa_reportContainer {
+    background-color: #b3b1c3 !important;
+}
+
+.owa_reportLeftNavColumn {
+    background-color: #b3b1c3 !important;
+}
+
+#owa_header {
+    background-color: #6b687d !important;
+}
+
+.owa a {
+color: #21759B;
+}
+
+.owa a:hover {
+color: orange;
+}
+
+.owa .section {
+background-color:#ffffff;
+margin:20px;
+}
+
+
 .owa a {
     color: #21759B;
 }

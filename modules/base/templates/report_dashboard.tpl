@@ -79,10 +79,17 @@
                 <div id="test"></div>
             </div>
 
+<div class="owa_reportSectionContent">
+          <div class="section_header">AGIS News</div>
+                Project Visum Engine version 0.56 is now live!
+          </div>
+</div>
+<!--
             <div class="owa_reportSectionContent">
                 <div class="section_header">OWA News</div>
                 <?php echo $this->getWidget('base.widgetOwaNews','',false);?>
             </div>
+-->
         </TD>
     </TR>
 </table>
