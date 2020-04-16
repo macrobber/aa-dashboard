@@ -30,7 +30,7 @@ require_once(OWA_BASE_DIR.'/owa_reportController.php');
  * @since        owa 1.4.0
  */
 
-class owa_agisWordBubbleController extends owa_reportController {
+class owa_agisEngagementController extends owa_reportController {
 
     function action() {
 
@@ -70,9 +70,6 @@ class owa_agisWordBubbleController extends owa_reportController {
                     'do'          => 'getResultSet',
                     'siteId'      => $this->getParam( 'siteId' )
             ));
-            //Console::log('Begin logging data');
-            //console.log('Mooooooo');
-            //print_r('Moooooooo');
             //print_r($total_visitors_rs);
             $total_visitors = $total_visitors_rs->getAggregateMetric( 'visitors' );
             //print "Total visits: $total_visitors";
@@ -118,9 +115,9 @@ class owa_agisWordBubbleController extends owa_reportController {
 
         }
         // set view stuff
-        $this->setSubview('base.agisWordBubble');
+        $this->setSubview('base.agisGeoMap');
         #$this->setTitle('Funnel Visualization:', 'Goal ' . $goal_number);
-        $this->setTitle('Agis Word Bubble');
+        $this->setTitle('AGIS Chat Engagement');
         #$this->set('goal_number', $goal_number);
     }
 }
@@ -139,19 +136,16 @@ require_once(OWA_BASE_DIR.'/owa_view.php');
  * @since        owa 1.4.0
  */
 
-class owa_AgisWordBubbleView extends owa_view {
+class owa_AgisGeoMapView extends owa_view {
 
     function render() {
 	#echo "Hello world";
-        $this->body->set_template('agisWordBubble_template.php');
+        $this->body->set_template('agisEngagement_template.php');
         #$this->body->set('funnel', $this->get('funnel'));
         #$this->body->set('funnel_json', json_encode($this->get('funnel')));
         #$this->body->set('goal_conversion_rate', $this->get('goal_conversion_rate'));
         #$this->body->set('numGoals', owa_coreAPI::getSetting('base', 'numGoals') );
         #$this->body->set('goal_number',  $this->get('goal_number') );
-        #$this->body->set('siteID',  $this->get('siteId') );
-        
-        #$this->getParam( 'siteId' )
     }
 }
 

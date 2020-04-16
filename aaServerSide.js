@@ -9,63 +9,75 @@ var span = document.getElementsByClassName("close")[0];
 
 var map;
 var centerCords = {
-    lat: 36.1294,
-    lng: -82.866
+  lat: 36.1294,
+  lng: -82.866,
 };
 var InforObj = [];
 
 function addMarkerInfo(data) {
-
-  var markersOnMap = []
+  var markersOnMap = [];
 
   for (var iCounter = 0; iCounter < data.length; iCounter++) {
-      markersOnMap.push({
-          'placeName': data[iCounter].city,
-          LatLng: [{
-              lat: parseFloat(data[iCounter].lat),
-              lng: parseFloat(data[iCounter].lon)
-          }]
-      })
+    markersOnMap.push({
+      placeName: data[iCounter].city,
+      LatLng: [
+        {
+          lat: parseFloat(data[iCounter].lat),
+          lng: parseFloat(data[iCounter].lon),
+        },
+      ],
+    });
   }
 
   for (var i = 0; i < markersOnMap.length; i++) {
-//      console.log('PRE-Raw date: ', data[i].Created_date)
-      var date = new Date(data[i].Created_date)
-//      console.log('NEW NEW date: ', date.toString())
-      let timePre = date.toDateString();
+    //      console.log('PRE-Raw date: ', data[i].Created_date)
+    var date = new Date(data[i].Created_date);
+    //      console.log('NEW NEW date: ', date.toString())
+    let timePre = date.toDateString();
 
+    var contentString =
+      '<div id="content"><h1>' +
+      markersOnMap[i].placeName +
+      "</h1>" +
+      data[i].name +
+      "<br>" +
+      data[i].city +
+      " " +
+      data[i].region +
+      ", " +
+      data[i].country +
+      "<br>" +
+      "<p>Visited on: " +
+      timePre +
+      "<br>Did Engage: " +
+      data[i].agisDidEngage +
+      "<br>Total Engagements: " +
+      data[i].agisTotalEngagements +
+      "<br></p></div>";
 
-      var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName + '</h1>' +
-          data[i].name + '<br>' +
-          data[i].city + ' ' + data[i].region + ', ' + data[i].country + '<br>' +
+    let myMarkerCharacter = data[i].name;
+    myMarkerCharacter = myMarkerCharacter.substr(4, 1);
 
-          '<p>Visited on: ' + timePre + '<br>Did Engage: ' + data[i].agisDidEngage +
-          '<br>Total Engagements: ' + data[i].agisTotalEngagements + '<br></p></div>';
+    const marker = new google.maps.Marker({
+      position: markersOnMap[i].LatLng[0],
+      label: myMarkerCharacter,
+      gestureHandling: "greedy",
+      animation: google.maps.Animation.DROP,
+      map: map,
+    });
 
-          let myMarkerCharacter = data[i].name;
-          myMarkerCharacter = myMarkerCharacter.substr(4, 1)
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      maxWidth: 250,
+    });
 
-      const marker = new google.maps.Marker({
-          position: markersOnMap[i].LatLng[0],
-          label: myMarkerCharacter,
-          gestureHandling: 'greedy',
-          animation: google.maps.Animation.DROP,
-          map: map
-      });
+    marker.addListener("click", function () {
+      closeOtherInfo();
+      infowindow.open(marker.get("map"), marker);
+      InforObj[0] = infowindow;
+    });
 
-      const infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 250
-      });
-
-                      
-                      marker.addListener('click', function () {
-                          closeOtherInfo();
-                          infowindow.open(marker.get('map'), marker);
-                          InforObj[0] = infowindow;
-                      });
-      
-/*
+    /*
       marker.addListener('mouseover', function() {
           closeOtherInfo();
           infowindow.open(marker.get('map'), marker);
@@ -83,61 +95,81 @@ function addMarkerInfo(data) {
 
 function closeOtherInfo() {
   if (InforObj.length > 0) {
-      /* detach the info-window from the marker ... undocumented in the API docs */
-      InforObj[0].set("marker", null);
-      /* and close it */
-      InforObj[0].close();
-      /* blank the array */
-      InforObj.length = 0;
+    /* detach the info-window from the marker ... undocumented in the API docs */
+    InforObj[0].set("marker", null);
+    /* and close it */
+    InforObj[0].close();
+    /* blank the array */
+    InforObj.length = 0;
   }
 }
 
 function initMap(data) {
-  map = new google.maps.Map(document.getElementById('agisGeoMap'), {
-      zoom: 3,
-      mapTypeId: 'satellite',
-      center: centerCords
+  //console.log("MOOOOOOO")
+  map = new google.maps.Map(document.getElementById("agisGeoMap"), {
+    zoom: 3,
+    mapTypeId: "satellite",
+    center: centerCords,
   });
   addMarkerInfo(data);
 }
 
-
-function myDomainSwitcher()
-{
-
-  console.log('INSIDE DOMAIN SWITCHER....')
+function myDomainSwitcher() {
+  console.log("INSIDE DOMAIN SWITCHER....");
 }
 
 function drawMap(data, loadURL) {
   let newData = data;
-  console.log("inside draw map XXX - data passed: ", data)
-//  console.log("inside drawMap: passed a URL to load of: ", loadURL)
+  console.log("inside draw map XXX - data passed: ", data);
+  const queryString = window.location.search;
+  console.log("queryString", queryString);
+  const urlParams = new URLSearchParams(queryString);
+  const color = urlParams.get("owa_siteId");
+  console.log("owa_siteId", color);
+
+  //  console.log("inside drawMap: passed a URL to load of: ", loadURL)
 
   let thelat = parseFloat(data[0].lat);
   let thelon = parseFloat(data[0].lon);
 
   //console.log('data[0].name: ', data[0].name)
 
-  if(data[0].name == loadURL){
+  if (data[0].name == loadURL) {
     //console.log("()()BOOM - found a match....")
   }
 
-  let FilteredData = []
-  if(loadURL != null && loadURL != 'all') {
-  for (var iCounter = 0; iCounter < data.length; iCounter++) {
-    //console.log("Draw map- domain: ", data[iCounter].name)
-    if(data[iCounter].name == loadURL) {
-      console.log('=====Draw map - found a match on ', loadURL)
-      FilteredData.push(data[iCounter])
+  let FilteredData = [];
+  if (loadURL != null && loadURL != "all") {
+    for (var iCounter = 0; iCounter < data.length; iCounter++) {
+      //console.log("Draw map- domain: ", data[iCounter].name)
+      if (data[iCounter].name == loadURL) {
+        console.log("=====Draw map - found a match on ", loadURL);
+        FilteredData.push(data[iCounter]);
+      }
     }
+    console.log("FILTERED DATA: ", FilteredData);
+    data = [...FilteredData];
+    newData = [...FilteredData];
+    console.log("--- New DATA: ", data);
   }
-  console.log("FILTERED DATA: ", FilteredData)
-  data = [...FilteredData]
-  newData = [...FilteredData]
-  console.log('--- New DATA: ', data)
-}
 
-  initMap(data);
+  console.log("moooooooooo")
+  
+  if(!document.getElementById('agisGeoMap')) {
+    console.log('GeoMap not active......')
+  } else {
+    console.log('GeoMap active......')
+    initMap(data);
+  }
+  /*
+  var isGeoAlive = document.getElementById('agisGeoMap');
+  if (typeof isGeoAlive !== "undefined" && isGeoAlive.value == '') {
+    console.log('GeoMap not active......')
+  } else {
+    console.log('GeoMap active......')
+  }
+*/
+  //initMap(data);
 
   let totalDidEngage = 0;
   let totalEngagements = 0;
@@ -162,7 +194,7 @@ function drawMap(data, loadURL) {
   // Percentage Engagement GAUGE start
   var EngagedPercentage = google.visualization.arrayToDataTable([
     ["Label", "Value"],
-    ["Engaged", baseNotEngagedPercentage]
+    ["Engaged", baseNotEngagedPercentage],
   ]);
 
   var EngagedPercentageOptions = {
@@ -172,7 +204,7 @@ function drawMap(data, loadURL) {
     redTo: 100,
     yellowFrom: 75,
     yellowTo: 90,
-    minorTicks: 5
+    minorTicks: 5,
   };
   var EngagedPercentageChart = new google.visualization.Gauge(
     document.getElementById("agisEngagementPercentage")
@@ -183,7 +215,7 @@ function drawMap(data, loadURL) {
   // Percentage Average Engagement GAUGE start
   var AverageEngagedPercentage = google.visualization.arrayToDataTable([
     ["Label", "Value"],
-    ["AVG Engage", avgEngagementPercentage]
+    ["AVG Engage", avgEngagementPercentage],
   ]);
 
   var AverageEngagedPercentageOptions = {
@@ -193,7 +225,7 @@ function drawMap(data, loadURL) {
     redTo: 100,
     yellowFrom: 75,
     yellowTo: 90,
-    minorTicks: 5
+    minorTicks: 5,
   };
   var AverageEngagedPercentageChart = new google.visualization.Gauge(
     document.getElementById("agisAverageEngagementPercentage")
@@ -218,7 +250,7 @@ function drawMap(data, loadURL) {
     let tmpDate2 = new Date(tmpDate);
     weekHolder.push([
       new Date(tmpDate2.getFullYear(), tmpDate2.getMonth(), tmpDate2.getDate()),
-      0
+      0,
     ]);
   }
 
@@ -326,17 +358,18 @@ function drawMap(data, loadURL) {
     height: 500,
     hAxis: {
       format: "M/d/yy",
-      gridlines: { count: 7 }
+      gridlines: { count: 7 },
     },
     vAxis: {
       gridlines: { color: "none" },
-      minValue: 0
-    }
+      minValue: 0,
+    },
   };
-
+/*
   var UsageByDaychart = new google.visualization.ColumnChart(
     document.getElementById("agisUsageChart")
   );
+*/
 
   //end usage chart
   // start global map with pins
@@ -344,7 +377,7 @@ function drawMap(data, loadURL) {
   for (counter = 0; counter < totalRecords; counter++) {
     GeoData.push([
       parseFloat(newData[counter].lat),
-      parseFloat(newData[counter].lon)
+      parseFloat(newData[counter].lon),
     ]);
   }
   //console.log("NEW DATA: ", GeoData);
@@ -354,15 +387,14 @@ function drawMap(data, loadURL) {
   GeoMap.addColumn("number", "lon");
   GeoMap.addRows(GeoData);
 
-
   // stop global map with pins
-  
+
   let GlobalData = [];
   var numCountry = 0;
 
   let myMapNames = [];
 
-  const distinctCountries = [...new Set(newData.map(x => x.country))];
+  const distinctCountries = [...new Set(newData.map((x) => x.country))];
 
   let newCountryCounter = [];
   let newCounterMoo = 0;
@@ -387,14 +419,14 @@ function drawMap(data, loadURL) {
 
   var GEOoptions = {
     showTooltip: true,
-    showInfoWindow: true
+    showInfoWindow: true,
   };
 
   var mapOptions = {
     colorAxis: { colors: ["#fed130", "black", "#458b74"] },
     backgroundColor: "#81d4fa",
     datalessRegionColor: "#7fffd4",
-    defaultColor: "#f5f5f5"
+    defaultColor: "#f5f5f5",
   };
 
   /*
@@ -403,12 +435,25 @@ function drawMap(data, loadURL) {
   );
 */
 
-  var worldMap = new google.visualization.GeoChart(
-    document.getElementById("agisGlobalMap")
-  );
+
+if(!document.getElementById('agisGlobalMap')) {
+  console.log('agisGlobalMap not active......')
+} else {
+  console.log('agisGlobalMap active......')
+//    initMap(data);
+var worldMap = new google.visualization.GeoChart(
+  document.getElementById("agisGlobalMap")
+);
+
+}
+
+
+
   var TotalVisitorChartElem = new google.visualization.ColumnChart(
     document.getElementById("agisTotalVisitorChart")
   );
+
+  console.log("MOO - just before agisTotalVisitorChart....")
 
   var agisTotalVisitors = document.getElementById("agisTotalVisitorChart");
   agisTotalVisitors.innerHTML = totalRecords;
@@ -425,8 +470,22 @@ function drawMap(data, loadURL) {
 
   // draw maps
   //globalGeoMap.draw(GeoMap, GEOoptions);
-  worldMap.draw(agisGlobalMap, mapOptions);
-  UsageByDaychart.draw(engagementsByDay, engagementsByDayOptions);
+
+
+  if(!document.getElementById('agisGlobalMap')) {
+    console.log('agisGlobalMap not active......')
+  } else {
+    console.log('agisGlobalMap active......')
+//    initMap(data);
+worldMap.draw(agisGlobalMap, mapOptions);
+  }
+
+
+
+  //UsageByDaychart.draw(engagementsByDay, engagementsByDayOptions);
+
+
+
 }
 
 function getFromAgis(loadURL) {
@@ -435,73 +494,75 @@ function getFromAgis(loadURL) {
   let myLon = document.getElementById("myLon");
   let firstLoadURL = null;
 
-  console.log('INSIDE GET FROM AGIS: loadURL: ', loadURL)
+  console.log("INSIDE GET FROM AGIS: loadURL: ", loadURL);
 
   //  fetch("http://localhost:7000/analytics", {
   fetch("https://chat.jasonchats.com:7000/analytics", {
     method: "get",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   })
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
       drawMap(data, loadURL);
       //initMap(data);
-
     });
 }
 
 function getUserInteractions(loadURL) {
-
   let firstLoadURL = null;
 
-  console.log('inside GetUserInteractions - url: ', loadURL)
+  console.log("inside GetUserInteractions - url: ", loadURL);
+  //console.log("moooooo")
 
   let passedDomain = "";
-  if(loadURL != null){
+  if (loadURL != null) {
     let loadURLStripped = loadURL.substring(4, loadURL.length);
-    console.log('STRIPPED: loadURL: ', loadURLStripped)
+    console.log("STRIPPED: loadURL: ", loadURLStripped);
     passedDomain = loadURLStripped;
   } else {
-    passedDomain = "."
+    passedDomain = ".";
   }
 
-  if(loadURL == 'all') {
-    passedDomain = "."
+  if (loadURL == "all") {
+    passedDomain = ".";
   }
 
   //console.log("Inside getUserInteractions");
   //fetch("https://chat.jasonchats.com:8080/api/getInteractions?domain=", {
-  fetch("https://chat.jasonchats.com:8080/api/getInteractions?domain=primenumberfarms.com", {
-//  fetch("https://chat.jasonchats.com:8080/api/getInteractions?domain="+passedDomain, {    
-    method: "get",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
+  fetch(
+    "https://chat.jasonchats.com:8080/api/getInteractions?domain=primenumberfarms.com",
+    {
+      //  fetch("https://chat.jasonchats.com:8080/api/getInteractions?domain="+passedDomain, {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     }
-  })
-    .then(response => {
+  )
+    .then((response) => {
       return response.json();
     })
-    .then(data => {
-      
+    .then((data) => {
+      //console.log('inside getUserInteractions - data passed: ', data)
       getAgisInteractions(data);
       //console.log('inside getUserInteractions - data passed: ', data)
     });
 }
 
 function getAgisInteractions(data) {
-  //console.log("Inside getAgisInteractions - data passed: ", data);
+  console.log("Inside getAgisInteractions - data passed: ", data);
   let fullData = data;
 
   let classificationCounts = {};
   let classificationNlp = [];
 
-//  console.log("Inside processUserInteractions - sentence: ", data[0].sentence);
+  //  console.log("Inside processUserInteractions - sentence: ", data[0].sentence);
   for (var i = 0; i < data.length; i++) {
     if (data[i].allClassifications.length > 0) {
       for (var x = 0; x < data[i].allClassifications.length; x++) {
@@ -511,7 +572,7 @@ function getAgisInteractions(data) {
   }
   var count = [];
   let myCounter = 0;
-  classificationNlp.forEach(function(i) {
+  classificationNlp.forEach(function (i) {
     count[i] = (count[i] || 0) + 1;
     myCounter++;
   });
@@ -545,7 +606,7 @@ function getAgisInteractions(data) {
   chart.colorRange().length("60%");
 
   // add an event listener
-  chart.listen("pointClick", function(e) {
+  chart.listen("pointClick", function (e) {
     var url = "https://en.wikipedia.org/wiki/" + e.point.get("x");
     modal.style.display = "block";
 
@@ -588,12 +649,21 @@ function getAgisInteractions(data) {
   });
 
   // display the word cloud chart
+
+  if(!document.getElementById('agisBubble')) {
+    console.log('agisBubble not active......')
+  } else {
+    console.log('agisBubble active......')
+    //initMap(data);
+    chart.container("agisBubble");
+    chart.draw();
   
-  chart.container("agisBubble");
-  chart.draw();
+  }
+
+
 }
 //request.send()
-window.onload = function() {
+window.onload = function () {
   let loadURL = null;
   getFromAgis(loadURL);
   //getAgisInteractions();
@@ -602,18 +672,17 @@ window.onload = function() {
 };
 
 // When the user clicks the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 };
 
-
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -621,12 +690,12 @@ window.onclick = function(event) {
 
 $(function () {
   $("#mySelect").change(function () {
-      var selectedText = $(this).find("option:selected").text();
-      var selectedValue = $(this).val();
-      //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
-      getFromAgis(selectedValue)
-      var clearWordBubble = document.getElementById("agisBubble")
-      clearWordBubble.innerHTML = "";
-      getUserInteractions(selectedValue)
+    var selectedText = $(this).find("option:selected").text();
+    var selectedValue = $(this).val();
+    //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
+    getFromAgis(selectedValue);
+    var clearWordBubble = document.getElementById("agisBubble");
+    clearWordBubble.innerHTML = "";
+    getUserInteractions(selectedValue);
   });
 });

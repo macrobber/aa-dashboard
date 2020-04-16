@@ -2282,6 +2282,7 @@ class owa_baseModule extends owa_module {
         $this->addNavigationSubGroup('Dashboard', 'base.reportDashboard', 'Dashboard', 1);
         $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisWordBubble', 'AGIS Word Bubble', 1);
         $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisGeoMap', 'AGIS Geo Map', 2);
+        $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisEngagement', 'AGIS Chat Engagement', 2);
 
         //Ecommerce
         $this->addNavigationSubGroup('Ecommerce', 'base.reportEcommerce', 'Ecommerce', 5, 'view_reports_ecommerce');
