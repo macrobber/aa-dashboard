@@ -556,7 +556,7 @@ function getUserInteractions(loadURL) {
 }
 
 function getAgisInteractions(data) {
-  console.log("Inside getAgisInteractions - data passed: ", data);
+  console.log("Inside getAgisInteractions XXX - data passed: ", data);
   let fullData = data;
 
   let classificationCounts = {};
@@ -590,6 +590,143 @@ function getAgisInteractions(data) {
     data.push({ x: moo6, value: moo2 });
   }
 
+
+  console.log('Still inside getUserInteractions...')
+  if(!document.getElementById('agisTranscript')) {
+    console.log('agisTranscript not active......')
+  } else {
+    console.log('agisTranscript active......')
+    console.log('agisTranscript is active - active data: ', fullData)
+
+    console.log('CustomerID: ', fullData.user)
+
+
+    const unique = [...new Set(fullData.map(item => item.user))];
+    console.log('UNIQUE...', unique)
+    //console.log('UNIQUE 1: ', unique[1])
+
+    console.log('fulldata.length: ', fullData.length)
+
+
+
+    for (var i = 0; i < unique.length; i++) {
+
+      // create button for collapse start
+      var x = document.createElement("BUTTON");
+      x.setAttribute("class", "collapsible" )
+      x.setAttribute("data-toggle", "collapse")
+      x.setAttribute("data-target", '#'+unique[i])
+      x.setAttribute("style", "font-weight: 700")
+
+
+      //data-toggle="collapse" data-target="#demo"
+      var t = document.createTextNode(unique[i]);
+      x.appendChild(t);
+      document.getElementById('agisTranscriptCustomer').appendChild(x)
+      //document.body.appendChild(x);
+
+
+      var customer = document.createElement('div');
+      customer.setAttribute("id", unique[i] )
+      customer.setAttribute("class", "agisCustomer" )
+      customer.setAttribute("class", "collapse" )
+      document.getElementById('agisTranscriptCustomer').appendChild(customer)
+
+// create button for collaps stop
+}
+
+
+
+    
+
+    for (var i = 0; i < fullData.length; i++) {
+      console.log('CustomerID in loop: ', fullData[i].user)
+      //console.log('CustomerQuestion in loop: ', fullData[i].originalSentence)
+      //console.log('Customer Responce in loop: ', fullData[i].response)
+/*
+
+      if(unique[i] == fullData[i].user) {
+
+            // create button for collapse start
+            var x = document.createElement("BUTTON");
+            x.setAttribute("class", "collapsible" )
+            x.setAttribute("data-toggle", "collapse")
+            x.setAttribute("data-target", '#'+fullData[i].user)
+            x.setAttribute("style", "font-weight: 700")
+
+
+            //data-toggle="collapse" data-target="#demo"
+            var t = document.createTextNode(fullData[i].user);
+            x.appendChild(t);
+            document.getElementById('agisTranscriptCustomer').appendChild(x)
+            //document.body.appendChild(x);
+
+
+            var customer = document.createElement('div');
+            customer.setAttribute("id",fullData[i].user )
+            customer.setAttribute("class", "agisCustomer" )
+            customer.setAttribute("class", "collapse" )
+            document.getElementById('agisTranscriptCustomer').appendChild(customer)
+
+      // create button for collaps stop
+    }
+*/
+      var question = document.createElement('div');
+      question.setAttribute("id",fullData[i].user )
+      question.setAttribute("class", "agisQuestion" )
+      var textnode = document.createTextNode(fullData[i].originalSentence)
+
+//      var timeStamp2 = (new Date(fullData[i].timeStamp * 1000).toISOString().slice(0, 19).replace('T', ' '));
+      //var timeStamp2 = (new Date(fullData[i].timeStamp * 1000).toISOString());
+
+      var jsDate = new Date(fullData[i].timeStamp);
+
+      var year = jsDate.getFullYear();
+      var month = jsDate.getMonth() + 1;
+      var date = jsDate.getDate();
+      var hours = jsDate.getHours();
+      var minutes = jsDate.getMinutes();
+      var totalTimeStamp = month + '/' + date + '/' + year + ': ' + hours + ':' + minutes;
+      var totalTimeStampAnswer = totalTimeStamp;
+
+//      console.log('totalTimeStamp: ', totalTimeStamp)
+
+      //var timeStamp = document.createTextNode('('+fullData[i].timeStamp + ')')
+      var timeStamp = document.createTextNode('('+ totalTimeStamp + ')')
+      question.appendChild(textnode)
+      question.appendChild(timeStamp)
+      document.getElementById(fullData[i].user).appendChild(question)
+
+      var answer = document.createElement('div');
+      answer.setAttribute("id",fullData[i].user )
+      answer.setAttribute("class", "agisAnswer" )
+
+      var newResult = fullData[i].response;
+      newResult = newResult.toString();
+      newResult = newResult.replace( /(<([^>]+)>)/ig, '');
+
+//      console.log("NEWRESULT: ", newResult)
+
+      // testing regex replacement string stop
+
+
+      var textnode = document.createTextNode(' ' + newResult)
+
+      //var textnode = document.createTextNode(fullData[i].response)
+      
+      var timeStampMyAnswer = document.createTextNode('('+ totalTimeStampAnswer + ')')
+
+      answer.appendChild(timeStampMyAnswer)
+      answer.appendChild(textnode)
+      
+
+     document.getElementById(fullData[i].user).appendChild(answer)
+      ///fullData[i].allClassifications
+    }
+  
+  }
+
+  
   // create a tag (word) cloud chart
   var chart = anychart.tagCloud(data);
 
@@ -659,6 +796,7 @@ function getAgisInteractions(data) {
     chart.draw();
   
   }
+  
 
 
 }

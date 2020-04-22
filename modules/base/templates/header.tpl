@@ -2,8 +2,9 @@
 <div id="owa_header">
     
     <span class="owa_logo"><img src="<?php echo $this->makeImageLink( owa_coreAPI::getSetting( 'base', 'logo_image_path' ) ); ?>" style="height: 65px;" alt="Open Web Analytics"></span>
+    <span style="color: #76bd2a; font-size: 24px; padding-left: 34px;">AGIS Visum Engine</span>
      &nbsp
-    <p style="color: #76bd2a; position: absolute; top: 6px; left: 119px; font-size: 27px;">AGIS Visum Engine </p>
+    <!-- <p style="color: #76bd2a; position: absolute; top: 6px; left: 119px; font-size: 27px;">AGIS Visum Engine </p> -->
     <span class="owa_navigation">
         <UL>
             <?php if ($this->getCurrentUser()->isCapable('view_site_list')): ?>

@@ -1,5 +1,5 @@
 <?php if ( isset($options) && ! $this->getValue( 'no_script_wrapper', $options ) ) { ?>
-<!-- Start Open Web Analytics Tracker -->
+<!-- Start AGIS Visum Analytics Tracker -->
 <script type="text/javascript">
 //<![CDATA[
 <?php } ?>
@@ -35,5 +35,5 @@ foreach ($cmds as $cmd) {
 <?php if ( isset($options) && ! $this->getValue( 'no_script_wrapper', $options ) ) { ?>
 //]]>
 </script>
-<!-- End Open Web Analytics Code -->
+<!-- End AGIS Visum Analytics Code -->
 <?php } ?>
