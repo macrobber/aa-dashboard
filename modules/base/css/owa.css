@@ -8,6 +8,22 @@ fieldset{margin: 7px; padding: 20px; border:1px solid #cccccc;}
 div {margin:0;}
 
 .owa a {
+	color: #6b687d !important;
+}
+
+.owa_reportContainer {
+	background-color: #b3b1c3 !important;
+}
+
+.owa_reportLeftNavColumn {
+	background-color: #b3b1c3 !important;
+}
+
+#owa_header {
+	background-color: #6b687d !important;
+}
+
+.owa a {
     color: #21759B;
 }
 
@@ -209,7 +225,7 @@ td#panel {margin: 0px; padding-top:0px;width:;border-collapse: collapse;border:0
     -moz-border-radius:10px 10px 10px 10px;
     border-radius:10px 10px 10px 10px;
     -webkit-border-radius:10px 10px 10px 10px;
-    background-color: #494444;
+    background-color: #76bd2a;
 }
 
 /* ROUNDER CORNERS */

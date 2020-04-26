@@ -14,7 +14,7 @@
                 <table width="100%">
                     <TR>
                         <TD class="">
-                            <img src="<?php echo $this->makeImageLink('base/i/owa_logo_150w.jpg'); ?>" alt="Open Web Analytics"><BR>
+                            <img src="<?php echo $this->makeImageLink('../../wp-content/uploads/2020/04/cropped-agis-10-4-150x117-1.png'); ?>" alt="Open Web Analytics" style="height: 65px;"><BR>
                         </TD>
                     </TR>
                 </table>
@@ -27,7 +27,7 @@
 
             <BR><BR><BR><BR>
             <div style="text-align:center">
-                <span class="inline_h4"><a href="http://www.openwebanalytics.com">Web Analytics</a> powered by <a href="http://www.openwebanalytics.com">Open Web Analytics</a> - v: <?php echo OWA_VERSION;?></span>
+                <span class="inline_h4">AGIS Analytics partially powered by <a href="http://www.openwebanalytics.com">Open Web Analytics</a></span>
             </div>
         </div>
 

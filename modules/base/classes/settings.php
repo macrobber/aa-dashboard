@@ -711,7 +711,7 @@
                 'maxCustomVars'                        => 5,
                 'update_session_user_name'            => true, // updates the session with latest user_name value
                 'log_owa_user_names'                => true,  // logs the OWA user name as the user_name property on events
-                'logo_image_path'                    => 'base/i/owa-logo-100w.png',
+                'logo_image_path'                    => '../../wp-content/uploads/2020/04/cropped-agis-10-4-150x117-1.png',
                 'use_64bit_hash'                    => false,
                 'user_id_illegal_chars'                => array( " ", ";", "'", "\"", "|", ")", "("),
                 'archive_old_events'                => true // used by event queues to archive processed events.

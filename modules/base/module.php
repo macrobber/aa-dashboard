@@ -2280,6 +2280,10 @@ class owa_baseModule extends owa_module {
     function registerNavigation() {
 
         $this->addNavigationSubGroup('Dashboard', 'base.reportDashboard', 'Dashboard', 1);
+        $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisWordBubble', 'AGIS Word Bubble', 1);
+        $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisGeoMap', 'AGIS Geo Map', 2);
+        $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisEngagement', 'AGIS Chat Engagement', 2);
+        $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisTranscript', 'AGIS Chat Transcripts', 2);
 
         //Ecommerce
         $this->addNavigationSubGroup('Ecommerce', 'base.reportEcommerce', 'Ecommerce', 5, 'view_reports_ecommerce');
@@ -2326,6 +2330,7 @@ class owa_baseModule extends owa_module {
         //Goals
         $this->addNavigationSubGroup('Goals', 'base.reportGoals', 'Goals', 5);
         $this->addNavigationLinkInSubGroup( 'Goals', 'base.reportGoalFunnel', 'Funnel Visualization', 1);
+        //$this->addNavigationLinkInSubGroup( 'Goals', 'base.agisWordBubble', 'Agis Word Bubble2', 1);
 
     }
 
