@@ -11,13 +11,20 @@
                 <LI><a href="<?php echo $this->makeLink(array('do' => 'base.sites'));?>">Reporting</a></LI>
             <?php endif; ?>
             <?php if ($this->getCurrentUser()->isCapable('edit_settings')): ?>
-                <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Administration</a></LI>
+                <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Settings</a></LI>
             <?php endif; ?>
+<<<<<<< HEAD
             <LI><a href="https://agisanalytics.com/help.php">User Guide</a></LI>
             <!--
             <LI><a href="http://wiki.openwebanalytics.com">Help</a></LI>
             <LI><a href="http://trac.openwebanalytics.com">Report a Bug</a></LI>
             -->
+=======
+            <LI><a href="https://github.com/Open-Web-Analytics/Open-Web-Analytics/wiki">Documentation</a></LI>
+            <LI><a href="https://github.com/Open-Web-Analytics/Open-Web-Analytics/issues">Report a Bug</a></LI>
+            <LI><a href="https://github.com/sponsors/padams">Donate</a>
+
+>>>>>>> b6b99541c1b5238b1fecffe9be3772b702ff3dec
         </UL>
     </span>
     <?php $cu = $this->getCurrentUser(); ?>
