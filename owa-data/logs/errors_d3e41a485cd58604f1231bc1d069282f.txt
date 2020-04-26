@@ -210,3 +210,9 @@
 05:05:50 2020-04-24 9135 [debug_log] Site added successfully. site_id: d1f35b20fa165470f64934e6480532a5 
 10:27:45 2020-04-24 14220 [debug_log] Updated user password successfully. 
 10:39:31 2020-04-24 14461 [debug_log] Updated user password successfully. 
+10:26:26 2020-04-26 15610 [debug_log] Applying Update 10 (owa_base_010_update) 
+10:26:26 2020-04-26 15610 [debug_log] Pre Update Proceadure Suceeded 
+10:26:28 2020-04-26 15610 [debug_log] page_width added to owa_domstream 
+10:26:29 2020-04-26 15610 [debug_log] page_height added to owa_domstream 
+10:26:29 2020-04-26 15610 [debug_log] Post Update Proceadure Suceeded 
+10:26:29 2020-04-26 15610 [debug_log] Update Suceeded 
