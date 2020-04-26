@@ -562,7 +562,10 @@ function getUserInteractions(loadURL) {
       return response.json();
     })
     .then((data) => {
-      //console.log('inside getUserInteractions - data passed: ', data)
+      console.log('YYYYY inside getUserInteractions - data passed: ', data)
+      if(data.length == 0) {
+        console.log('BOOOOOOOOOOOM - no data - dont display...');
+      }
       getAgisInteractions(data);
       //console.log('inside getUserInteractions - data passed: ', data)
     });

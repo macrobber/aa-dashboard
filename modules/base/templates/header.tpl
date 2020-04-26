@@ -13,7 +13,7 @@
             <?php if ($this->getCurrentUser()->isCapable('edit_settings')): ?>
                 <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Administration</a></LI>
             <?php endif; ?>
-            
+            <LI><a href="https://agisanalytics.com/help.php">User Guide</a></LI>
             <!--
             <LI><a href="http://wiki.openwebanalytics.com">Help</a></LI>
             <LI><a href="http://trac.openwebanalytics.com">Report a Bug</a></LI>

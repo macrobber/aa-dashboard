@@ -2278,6 +2278,7 @@ class owa_baseModule extends owa_module {
     }
 
     function registerNavigation() {
+        
 
         $this->addNavigationSubGroup('Dashboard', 'base.reportDashboard', 'Dashboard', 1);
         $this->addNavigationLinkInSubGroup( 'Dashboard', 'base.agisWordBubble', 'AGIS Word Bubble', 1);
