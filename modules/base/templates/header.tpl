@@ -11,7 +11,7 @@
                 <LI><a href="<?php echo $this->makeLink(array('do' => 'base.sites'));?>">Reporting</a></LI>
             <?php endif; ?>
             <?php if ($this->getCurrentUser()->isCapable('edit_settings')): ?>
-                <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Administration</a></LI>
+                <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Settings</a></LI>
             <?php endif; ?>
             <LI><a href="https://agisanalytics.com/help.php">User Guide</a></LI>
             <!--
