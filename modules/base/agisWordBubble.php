@@ -70,6 +70,12 @@ class owa_agisWordBubbleController extends owa_reportController {
                     'do'          => 'getResultSet',
                     'siteId'      => $this->getParam( 'siteId' )
             ));
+<<<<<<< HEAD
+=======
+            //Console::log('Begin logging data');
+            //console.log('Mooooooo');
+            //print_r('Moooooooo');
+>>>>>>> 90e633454796fd96c46622503d3595addd3795e7
             //print_r($total_visitors_rs);
             $total_visitors = $total_visitors_rs->getAggregateMetric( 'visitors' );
             //print "Total visits: $total_visitors";
@@ -146,6 +152,12 @@ class owa_AgisWordBubbleView extends owa_view {
         #$this->body->set('goal_conversion_rate', $this->get('goal_conversion_rate'));
         #$this->body->set('numGoals', owa_coreAPI::getSetting('base', 'numGoals') );
         #$this->body->set('goal_number',  $this->get('goal_number') );
+<<<<<<< HEAD
+=======
+        #$this->body->set('siteID',  $this->get('siteId') );
+        
+        #$this->getParam( 'siteId' )
+>>>>>>> 90e633454796fd96c46622503d3595addd3795e7
     }
 }
 
