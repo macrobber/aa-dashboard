@@ -146,6 +146,9 @@ class owa_AgisWordBubbleView extends owa_view {
         #$this->body->set('goal_conversion_rate', $this->get('goal_conversion_rate'));
         #$this->body->set('numGoals', owa_coreAPI::getSetting('base', 'numGoals') );
         #$this->body->set('goal_number',  $this->get('goal_number') );
+        #$this->body->set('siteID',  $this->get('siteId') );
+        
+        #$this->getParam( 'siteId' )
     }
 }
 

@@ -138,12 +138,12 @@ function drawMap(data, loadURL) {
     //console.log("()()BOOM - found a match....")
   }
 
-  var theDomain = document.getElementById('owa_reportSiteFilterSelect').options[document.getElementById('owa_reportSiteFilterSelect').selectedIndex].text;
-  console.log("+++++++++ Inside drawmap - domain to filter by: ", theDomain)
-
+  var theDomain = document.getElementById("owa_reportSiteFilterSelect").options[
+    document.getElementById("owa_reportSiteFilterSelect").selectedIndex
+  ].text;
+  console.log("+++++++++ Inside drawmap - domain to filter by: ", theDomain);
 
   loadURL = theDomain;
-
 
   let FilteredData = [];
   if (loadURL != null && loadURL != "all") {
@@ -160,12 +160,12 @@ function drawMap(data, loadURL) {
     console.log("--- New DATA: ", data);
   }
 
-  console.log("moooooooooo")
-  
-  if(!document.getElementById('agisGeoMap')) {
-    console.log('GeoMap not active......')
+  console.log("moooooooooo");
+
+  if (!document.getElementById("agisGeoMap")) {
+    console.log("GeoMap not active......");
   } else {
-    console.log('GeoMap active......')
+    console.log("GeoMap active......");
     initMap(data);
   }
   /*
@@ -372,7 +372,7 @@ function drawMap(data, loadURL) {
       minValue: 0,
     },
   };
-/*
+  /*
   var UsageByDaychart = new google.visualization.ColumnChart(
     document.getElementById("agisUsageChart")
   );
@@ -442,25 +442,21 @@ function drawMap(data, loadURL) {
   );
 */
 
-
-if(!document.getElementById('agisGlobalMap')) {
-  console.log('agisGlobalMap not active......')
-} else {
-  console.log('agisGlobalMap active......')
-//    initMap(data);
-var worldMap = new google.visualization.GeoChart(
-  document.getElementById("agisGlobalMap")
-);
-
-}
-
-
+  if (!document.getElementById("agisGlobalMap")) {
+    console.log("agisGlobalMap not active......");
+  } else {
+    console.log("agisGlobalMap active......");
+    //    initMap(data);
+    var worldMap = new google.visualization.GeoChart(
+      document.getElementById("agisGlobalMap")
+    );
+  }
 
   var TotalVisitorChartElem = new google.visualization.ColumnChart(
     document.getElementById("agisTotalVisitorChart")
   );
 
-  console.log("MOO - just before agisTotalVisitorChart....")
+  console.log("MOO - just before agisTotalVisitorChart....");
 
   var agisTotalVisitors = document.getElementById("agisTotalVisitorChart");
   agisTotalVisitors.innerHTML = totalRecords;
@@ -478,21 +474,15 @@ var worldMap = new google.visualization.GeoChart(
   // draw maps
   //globalGeoMap.draw(GeoMap, GEOoptions);
 
-
-  if(!document.getElementById('agisGlobalMap')) {
-    console.log('agisGlobalMap not active......')
+  if (!document.getElementById("agisGlobalMap")) {
+    console.log("agisGlobalMap not active......");
   } else {
-    console.log('agisGlobalMap active......')
-//    initMap(data);
-worldMap.draw(agisGlobalMap, mapOptions);
+    console.log("agisGlobalMap active......");
+    //    initMap(data);
+    worldMap.draw(agisGlobalMap, mapOptions);
   }
 
-
-
   //UsageByDaychart.draw(engagementsByDay, engagementsByDayOptions);
-
-
-
 }
 
 function getFromAgis(loadURL) {
@@ -539,23 +529,25 @@ function getUserInteractions(loadURL) {
     passedDomain = ".";
   }
 
-//  var theDomain = document.getElementById('owa_reportSiteFilterSelect').value;
-//  console.log("(((()))) Domain Selected is: ", theDomain)
+  //  var theDomain = document.getElementById('owa_reportSiteFilterSelect').value;
+  //  console.log("(((()))) Domain Selected is: ", theDomain)
 
-  var theDomain = document.getElementById('owa_reportSiteFilterSelect').options[document.getElementById('owa_reportSiteFilterSelect').selectedIndex].text;
-  console.log("(((()))) Domain Selected i2: ", theDomain)
+  var theDomain = document.getElementById("owa_reportSiteFilterSelect").options[
+    document.getElementById("owa_reportSiteFilterSelect").selectedIndex
+  ].text;
+  console.log("(((()))) Domain Selected i2: ", theDomain);
 
-  if(theDomain != null) {
-      // a domain has been selected.
+  if (theDomain != null) {
+    // a domain has been selected.
   } else {
-    theDomain  = ".";
+    theDomain = ".";
   }
 
   //console.log("Inside getUserInteractions");
   //fetch("https://chat.jasonchats.com:8080/api/getInteractions?domain=", {
   fetch(
     //"https://chat.jasonchats.com:8080/api/getInteractions?domain=primenumberfarms.com",
-    "https://chat.jasonchats.com:8080/api/getInteractions?domain="+theDomain,
+    "https://chat.jasonchats.com:8080/api/getInteractions?domain=" + theDomain,
 
     {
       //  fetch("https://chat.jasonchats.com:8080/api/getInteractions?domain="+passedDomain, {
@@ -611,60 +603,49 @@ function getAgisInteractions(data) {
     data.push({ x: moo6, value: moo2 });
   }
 
-
-  console.log('Still inside getUserInteractions...')
-  if(!document.getElementById('agisTranscript')) {
-    console.log('agisTranscript not active......')
+  console.log("Still inside getUserInteractions...");
+  if (!document.getElementById("agisTranscript")) {
+    console.log("agisTranscript not active......");
   } else {
-    console.log('agisTranscript active......')
-    console.log('agisTranscript is active - active data: ', fullData)
+    console.log("agisTranscript active......");
+    console.log("agisTranscript is active - active data: ", fullData);
 
-    console.log('CustomerID: ', fullData.user)
+    console.log("CustomerID: ", fullData.user);
 
-
-    const unique = [...new Set(fullData.map(item => item.user))];
-    console.log('UNIQUE...', unique)
+    const unique = [...new Set(fullData.map((item) => item.user))];
+    console.log("UNIQUE...", unique);
     //console.log('UNIQUE 1: ', unique[1])
 
-    console.log('fulldata.length: ', fullData.length)
-
-
+    console.log("fulldata.length: ", fullData.length);
 
     for (var i = 0; i < unique.length; i++) {
-
       // create button for collapse start
       var x = document.createElement("BUTTON");
-      x.setAttribute("class", "collapsible" )
-      x.setAttribute("data-toggle", "collapse")
-      x.setAttribute("data-target", '#'+unique[i])
-      x.setAttribute("style", "font-weight: 700")
-
+      x.setAttribute("class", "collapsible");
+      x.setAttribute("data-toggle", "collapse");
+      x.setAttribute("data-target", "#" + unique[i]);
+      x.setAttribute("style", "font-weight: 700");
 
       //data-toggle="collapse" data-target="#demo"
       var t = document.createTextNode(unique[i]);
       x.appendChild(t);
-      document.getElementById('agisTranscriptCustomer').appendChild(x)
+      document.getElementById("agisTranscriptCustomer").appendChild(x);
       //document.body.appendChild(x);
 
+      var customer = document.createElement("div");
+      customer.setAttribute("id", unique[i]);
+      customer.setAttribute("class", "agisCustomer");
+      customer.setAttribute("class", "collapse");
+      document.getElementById("agisTranscriptCustomer").appendChild(customer);
 
-      var customer = document.createElement('div');
-      customer.setAttribute("id", unique[i] )
-      customer.setAttribute("class", "agisCustomer" )
-      customer.setAttribute("class", "collapse" )
-      document.getElementById('agisTranscriptCustomer').appendChild(customer)
-
-// create button for collaps stop
-}
-
-
-
-    
+      // create button for collaps stop
+    }
 
     for (var i = 0; i < fullData.length; i++) {
-      console.log('CustomerID in loop: ', fullData[i].user)
+      console.log("CustomerID in loop: ", fullData[i].user);
       //console.log('CustomerQuestion in loop: ', fullData[i].originalSentence)
       //console.log('Customer Responce in loop: ', fullData[i].response)
-/*
+      /*
 
       if(unique[i] == fullData[i].user) {
 
@@ -692,12 +673,12 @@ function getAgisInteractions(data) {
       // create button for collaps stop
     }
 */
-      var question = document.createElement('div');
-      question.setAttribute("id",fullData[i].user )
-      question.setAttribute("class", "agisQuestion" )
-      var textnode = document.createTextNode(fullData[i].originalSentence)
+      var question = document.createElement("div");
+      question.setAttribute("id", fullData[i].user);
+      question.setAttribute("class", "agisQuestion");
+      var textnode = document.createTextNode(fullData[i].originalSentence);
 
-//      var timeStamp2 = (new Date(fullData[i].timeStamp * 1000).toISOString().slice(0, 19).replace('T', ' '));
+      //      var timeStamp2 = (new Date(fullData[i].timeStamp * 1000).toISOString().slice(0, 19).replace('T', ' '));
       //var timeStamp2 = (new Date(fullData[i].timeStamp * 1000).toISOString());
 
       var jsDate = new Date(fullData[i].timeStamp);
@@ -707,47 +688,46 @@ function getAgisInteractions(data) {
       var date = jsDate.getDate();
       var hours = jsDate.getHours();
       var minutes = jsDate.getMinutes();
-      var totalTimeStamp = month + '/' + date + '/' + year + ': ' + hours + ':' + minutes;
+      var totalTimeStamp =
+        month + "/" + date + "/" + year + ": " + hours + ":" + minutes;
       var totalTimeStampAnswer = totalTimeStamp;
 
-//      console.log('totalTimeStamp: ', totalTimeStamp)
+      //      console.log('totalTimeStamp: ', totalTimeStamp)
 
       //var timeStamp = document.createTextNode('('+fullData[i].timeStamp + ')')
-      var timeStamp = document.createTextNode('('+ totalTimeStamp + ')')
-      question.appendChild(textnode)
-      question.appendChild(timeStamp)
-      document.getElementById(fullData[i].user).appendChild(question)
+      var timeStamp = document.createTextNode("(" + totalTimeStamp + ")");
+      question.appendChild(textnode);
+      question.appendChild(timeStamp);
+      document.getElementById(fullData[i].user).appendChild(question);
 
-      var answer = document.createElement('div');
-      answer.setAttribute("id",fullData[i].user )
-      answer.setAttribute("class", "agisAnswer" )
+      var answer = document.createElement("div");
+      answer.setAttribute("id", fullData[i].user);
+      answer.setAttribute("class", "agisAnswer");
 
       var newResult = fullData[i].response;
       newResult = newResult.toString();
-      newResult = newResult.replace( /(<([^>]+)>)/ig, '');
+      newResult = newResult.replace(/(<([^>]+)>)/gi, "");
 
-//      console.log("NEWRESULT: ", newResult)
+      //      console.log("NEWRESULT: ", newResult)
 
       // testing regex replacement string stop
 
-
-      var textnode = document.createTextNode(' ' + newResult)
+      var textnode = document.createTextNode(" " + newResult);
 
       //var textnode = document.createTextNode(fullData[i].response)
-      
-      var timeStampMyAnswer = document.createTextNode('('+ totalTimeStampAnswer + ')')
 
-      answer.appendChild(timeStampMyAnswer)
-      answer.appendChild(textnode)
-      
+      var timeStampMyAnswer = document.createTextNode(
+        "(" + totalTimeStampAnswer + ")"
+      );
 
-     document.getElementById(fullData[i].user).appendChild(answer)
+      answer.appendChild(timeStampMyAnswer);
+      answer.appendChild(textnode);
+
+      document.getElementById(fullData[i].user).appendChild(answer);
       ///fullData[i].allClassifications
     }
-  
   }
 
-  
   // create a tag (word) cloud chart
   var chart = anychart.tagCloud(data);
 
@@ -808,18 +788,14 @@ function getAgisInteractions(data) {
 
   // display the word cloud chart
 
-  if(!document.getElementById('agisBubble')) {
-    console.log('agisBubble not active......')
+  if (!document.getElementById("agisBubble")) {
+    console.log("agisBubble not active......");
   } else {
-    console.log('agisBubble active......')
+    console.log("agisBubble active......");
     //initMap(data);
     chart.container("agisBubble");
     chart.draw();
-  
   }
-  
-
-
 }
 //request.send()
 window.onload = function () {

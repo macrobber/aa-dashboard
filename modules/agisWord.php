@@ -1,21 +1,18 @@
 
 <div id="owa_header">
     
-    <!-- <span class="owa_logo"><img src="<?php echo $this->makeImageLink( owa_coreAPI::getSetting( 'base', 'logo_image_path' ) ); ?>" style="height: 65px;" alt="Open Web Analytics"></span> -->
-    <span class="owa_logo"><img src="https://agisanalytics.com/wp-content/uploads/2020/04/cropped-agis-10-4-150x117-1-1.png" style="height: 65px;" alt="Open Web Analytics"></span>
-
-    <span style="color: #76bd2a; font-size: 24px; padding-left: 34px;">AGIS Visum Engine</span>
+    <span class="owa_logo"><img src="<?php echo $this->makeImageLink( owa_coreAPI::getSetting( 'base', 'logo_image_path' ) ); ?>" style="height: 65px;" alt="Open Web Analytics"></span>
      &nbsp
-    <!-- <p style="color: #76bd2a; position: absolute; top: 6px; left: 119px; font-size: 27px;">AGIS Visum Engine </p> -->
+    <p style="color: #76bd2a; position: fixed; top: 6px; left: 119px; font-size: 27px;">AGIS Visum Engine </p>
     <span class="owa_navigation">
         <UL>
             <?php if ($this->getCurrentUser()->isCapable('view_site_list')): ?>
                 <LI><a href="<?php echo $this->makeLink(array('do' => 'base.sites'));?>">Reporting</a></LI>
             <?php endif; ?>
             <?php if ($this->getCurrentUser()->isCapable('edit_settings')): ?>
-                <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Settings</a></LI>
+                <LI><a href="<?php echo $this->makeLink(array('do' => 'base.optionsGeneral'));?>">Administration</a></LI>
             <?php endif; ?>
-            <LI><a href="https://agisanalytics.com/help.php">User Guide</a></LI>
+            <LI><a href="MOO">AGIS WORD</a></LI>
             <!--
             <LI><a href="http://wiki.openwebanalytics.com">Help</a></LI>
             <LI><a href="http://trac.openwebanalytics.com">Report a Bug</a></LI>

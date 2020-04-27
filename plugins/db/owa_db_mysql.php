@@ -155,7 +155,7 @@ class owa_db_mysql extends owa_db {
      *
      */
     function query( $sql ) {
-  
+	   // echo $sql . "\n<br>";
           if ( $this->connection_status == false) {
 
               owa_coreAPI::profile($this, __FUNCTION__, __LINE__);

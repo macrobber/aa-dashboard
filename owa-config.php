@@ -36,7 +36,7 @@
  */
 
 define('OWA_DB_TYPE', 'mysql'); // options: mysql
-define('OWA_DB_NAME', 'owa'); // name of the database
+define('OWA_DB_NAME', 'agisowa'); // name of the database
 define('OWA_DB_HOST', 'localhost'); // host name of the server housing the database
 define('OWA_DB_USER', 'mack'); // database user
 define('OWA_DB_PORT', '3306'); // port of database
@@ -47,10 +47,10 @@ define('OWA_DB_PASSWORD', 'K!llo555'); // database user's password
  *
  * Change these to different unique phrases.
  */
-define('OWA_NONCE_KEY', ':N>r-Xe].LdHG&Wk#n]x1,_C2-N-(Y|dU]e cCC1aMCIY_tS}_6=q?;-BOvV;+;.');  
-define('OWA_NONCE_SALT', 'l7Y 9I^=iaR5zPyh#4ImA>#bFG!@<QwlF3(iO@>&Li[t6Xfa@MhWPgEsF98bVWWn');
-define('OWA_AUTH_KEY', 'Sr]5&0+FruZR`pl7H[>KJ,tS)SL5`YCb[71)B,u+yx*cPiWoZ4y@t&f6/2if?/l.');
-define('OWA_AUTH_SALT', 'rbRGpx28:ku&jq<e,oab7:m>qb/DO*C@j=2/o<9wF]3gYwp,j/^#EpqP&^5l~op@');
+define('OWA_NONCE_KEY', '234234298');  
+define('OWA_NONCE_SALT', '2342341345');
+define('OWA_AUTH_KEY', '993453453');
+define('OWA_AUTH_SALT', '23423948293472');
 
 /** 
  * PUBLIC URL
@@ -59,7 +59,7 @@ define('OWA_AUTH_SALT', 'rbRGpx28:ku&jq<e,oab7:m>qb/DO*C@j=2/o<9wF]3gYwp,j/^#Epq
  * Don't forget the slash at the end.
  */
  
-define('OWA_PUBLIC_URL', 'https://agisanalytics.com/dashboard/');  
+define('OWA_PUBLIC_URL', 'http://localhost/dashboard/');  
 
 /** 
  * OWA ERROR HANDLER
