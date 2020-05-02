@@ -8,62 +8,64 @@ OWA.items['<?php echo $dom_id;?>'].properties = <?php echo $this->makeJson($para
 
 <?php if ( ! $this->get( 'hideReportingNavigation' ) ):?>
 // Bind event handlers
-jQuery(document).ready(function(){   
-	
-	
+jQuery(document).ready(function(){
+
+
 	if (  jQuery('.owa_current').next('.owa_admin_nav_subgroup').length ) {
-		
+
 		jQuery('.owa_current').next('.owa_admin_nav_subgroup').toggle();
 		 jQuery('.owa_current').children('.owa_admin_nav_topmenu_toggle').toggleClass('fa-caret-right fa-caret-down');
 	}
-	
+
     // report side navigaion panels - toggle
     jQuery('.owa_admin_nav_topmenu_toggle').click(function () {
-	    
-	    if ( jQuery(this).parent().siblings('.owa_admin_nav_subgroup').length ) { 
+
+	    if ( jQuery(this).parent().siblings('.owa_admin_nav_subgroup').length ) {
 			 jQuery(this).parent().siblings('.owa_admin_nav_subgroup').toggle();
 			 jQuery(this).toggleClass('fa-caret-right fa-caret-down');
 		}
-		
+
     });
-    
+
 });
 <?php endif;?>
 </script>
 
-<div id="<?php echo $dom_id;?>" class="owa_reportContainer">
+<div id="<?php echo $dom_id;?>" class="container-fluid">
 
-    <table width="100%" cellpadding="0" cellspacing="0">
 
-        <TR>
+        <div class="row">
             <?php if ( ! $this->get( 'hideReportingNavigation' ) ):?>
-            <TD valign="top" class="owa_reportLeftNavColumn">
+            <div class="col col-md-2">
                 <div>
                     <div id="owa_reportNavPanel">
                         <?php echo $this->makeNavigationMenu($top_level_report_nav, $currentSiteId, $params['do']);?>
                     </div>
                 </div>
-            </TD>
+            </div>
             <?php endif;?>
-            <TD valign="top" width="*">
+            <div class="col">
 
                 <?php if ( ! $this->get( 'hideSitesFilter' ) ):?>
-                <div class="reportSectionContainer reportSiteFilter" style="margin-bottom:20px;">
-                <?php include('filter_site.php');?>
+                <div class="row reportSiteFilter mb-2">
+                    <div class="col">
+                        <?php include('filter_site.php');?>
+                    </div>
                 </div>
                 <?php endif;?>
-                <div class="reportSectionContainer">
-                    <div id="owa_timePeriodControl" class="owa_reportPeriod" style="float:right;"></div>
-                    <div id="liveViewSwitch" style="width:auto;float:right; padding-right:30px;"></div>
-                    <div class="owa_reportTitle"><?php echo $title;?><span class="titleSuffix"><?php echo $this->get('titleSuffix');?></span></div>
+                <div class="row">
+                    <div class="col">
+                        <div id="owa_timePeriodControl" class="owa_reportPeriod" style="float:right;"></div>
+                        <div id="liveViewSwitch" style="width:auto;float:right; padding-right:30px;"></div>
+                        <div class="owa_reportTitle"><?php echo $title;?><span class="titleSuffix"><?php echo $this->get('titleSuffix');?></span></div>
 
-                    <div class="clear"></div>
-                    <?php echo $subview;?>
-
+                        <div class="clear"></div>
+                        <?php echo $subview;?>
+                    </div>
                 </div>
-            </TD>
-        </TR>
-    </table>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
 OWA.items['<?php echo $dom_id;?>'].displayTimePeriodPicker('#owa_timePeriodControl');
