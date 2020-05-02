@@ -1202,3 +1202,14 @@
 10:10:04 2020-04-26 2730 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
 10:10:05 2020-04-26 3938 [debug_log] Maxmind DB file could is not present at: /var/www/html/Open-Web-Analytics/owa-data/maxmind/ 
 >>>>>>> 90e633454796fd96c46622503d3595addd3795e7
+10:59:06 2020-05-02 19955 [debug_log] Site added successfully. 
+10:59:06 2020-05-02 19955 [debug_log] 
+{
+    "id": 2323915617,
+    "site_id": "461a8cf715ecad9e1c95e8933d65322b",
+    "domain": "http:\/\/www.primenumberapps.com",
+    "name": "www.primenumberapps.com",
+    "description": "Site",
+    "site_family": null,
+    "settings": null
+} 
