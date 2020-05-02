@@ -30,7 +30,7 @@ if (!class_exists('owa_sanitize')) {
 
 /**
  * OWA Wrapper for template class
- * 
+ *
  * @author      Peter Adams <peter@openwebanalytics.com>
  * @copyright   Copyright &copy; 2006 Peter Adams <peter@openwebanalytics.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GPL v2.0
@@ -159,11 +159,11 @@ class owa_template extends Template {
                 $this->e->err(sprintf('%s was not found in any template directory.', $file));
                 return false;
             endif;
-        
+
             return true;
         endif;
     }
-    
+
     function setTemplateFile($module, $file) {
 
         //choose file
@@ -184,7 +184,7 @@ class owa_template extends Template {
      */
     function truncate ($str, $length=10, $trailing='...')  {
 
-      return owa_lib::truncate ($str, $length, $trailing); 
+      return owa_lib::truncate ($str, $length, $trailing);
     }
 
     function get_month_label($month) {
@@ -458,14 +458,14 @@ class owa_template extends Template {
 
         return $all_params;
     }
-    
+
     function getLinkStateParam( $key ) {
-	 
+
 	    $params = $this->getAllStateParams();
-	    
+
 	    if (array_key_exists($key, $params)) {
-		    
-		   return $params[ $key ];		    
+
+		   return $params[ $key ];
 	    }
 
     }
@@ -565,44 +565,44 @@ class owa_template extends Template {
         return $this->makeLink($params, $add_state, $url, $xml);
 
     }
-    
+
     function getApiKey() {
-	    
+
 	    $cu = owa_coreAPI::getCurrentUser();
 		return $cu->getUserData('api_key');
     }
 
     function makeApiLink($params = array(), $add_state = false) {
-		
+
 		$rest_routes = ['reports', 'users', 'sites'];
-		
+
 		$key = $this->getApiKey();
-		
+
 		if (in_array($params['do'], $rest_routes)) {
-			
+
 			$params['apiKey'] = $key;
 			$url = $this->config['rest_api_url'];
-			
+
 		} else {
 
 			if ( $params['do'] === 'getResultSet' ) {
-				
+
 				$url = $this->config['rest_api_url'];
 				$params['do'] = 'reports';
 				$params['module'] = 'base';
 				$params['version'] = 'v1';
-				
-				
+
+
 				owa_coreAPI::debug('api key is: '. $key);
 				owa_coreAPI::debug( $cu );
 				$params['apiKey'] = $key;
-								
+
 			} else {
-				
+
 				$url = $this->config['api_url'];
 			}
 		}
-        
+
 
         return $this->makeLink($params, $add_state, $url);
 
@@ -1076,7 +1076,7 @@ class owa_template extends Template {
 
     public function getSiteThumbnail( $domain, $width = '200' ) {
 
-        echo sprintf('<img src="https://s.wordpress.com/mshots/v1/%s?w=%s" width="%s">', urlencode($domain .'/'), $width, $width );
+        echo sprintf('<img src="https://s.wordpress.com/mshots/v1/%s?w=%s" class="img-fluid img-thumbnail w-100">', urlencode($domain .'/'), $width, $width );
     }
 
     /**

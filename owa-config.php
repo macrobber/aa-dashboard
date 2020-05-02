@@ -18,7 +18,7 @@
 
 /**
  * OWA Configuration
- * 
+ *
  * @author      Peter Adams <peter@openwebanalytics.com>
  * @copyright   Copyright &copy; 2006 Peter Adams <peter@openwebanalytics.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GPL v2.0
@@ -27,47 +27,47 @@
  * @version        $Revision$
  * @since        owa 1.0.0
  */
- 
+
 /**
  * DATABASE CONFIGURATION
  *
- * Connection info for databases that will be used by OWA. 
+ * Connection info for databases that will be used by OWA.
  *
  */
 
 define('OWA_DB_TYPE', 'mysql'); // options: mysql
-define('OWA_DB_NAME', 'agisowa'); // name of the database
-define('OWA_DB_HOST', 'localhost'); // host name of the server housing the database
-define('OWA_DB_USER', 'mack'); // database user
+define('OWA_DB_NAME', getenv('OWA_DB_NAME') ?: 'agisowa'); // name of the database
+define('OWA_DB_HOST', getenv('OWA_DB_HOST') ?: 'localhost'); // host name of the server housing the database
+define('OWA_DB_USER', getenv('OWA_DB_USER') ?: 'mack'); // database user
 define('OWA_DB_PORT', '3306'); // port of database
-define('OWA_DB_PASSWORD', 'K!llo555'); // database user's password
+define('OWA_DB_PASSWORD', getenv('OWA_DB_PASSWORD') ?: 'K!llo555'); // database user's password
 
 /**
  * AUTHENTICATION KEYS AND SALTS
  *
  * Change these to different unique phrases.
  */
-define('OWA_NONCE_KEY', '234234298');  
+define('OWA_NONCE_KEY', '234234298');
 define('OWA_NONCE_SALT', '2342341345');
 define('OWA_AUTH_KEY', '993453453');
 define('OWA_AUTH_SALT', '23423948293472');
 
-/** 
+/**
  * PUBLIC URL
  *
- * Define the URL of OWA's base directory e.g. http://www.domain.com/path/to/owa/ 
+ * Define the URL of OWA's base directory e.g. http://www.domain.com/path/to/owa/
  * Don't forget the slash at the end.
  */
- 
-define('OWA_PUBLIC_URL', 'http://localhost/dashboard/');  
 
-/** 
+define('OWA_PUBLIC_URL', getenv('OWA_PUBLIC_URL') ?: 'http://localhost/dashboard/');
+
+/**
  * OWA ERROR HANDLER
  *
- * Overide OWA error handler. This should be done through the admin GUI, but 
- * can be handy during install or development. 
- * 
- * Choices are: 
+ * Overide OWA error handler. This should be done through the admin GUI, but
+ * can be handy during install or development.
+ *
+ * Choices are:
  *
  * 'production' - will log only critical errors to a log file.
  * 'development' - logs al sorts of useful debug to log file.
@@ -75,18 +75,18 @@ define('OWA_PUBLIC_URL', 'http://localhost/dashboard/');
 
 //define('OWA_ERROR_HANDLER', 'development');
 
-/** 
+/**
  * LOG PHP ERRORS
  *
  * Log all php errors to OWA's error log file. Only do this to debug.
  */
 
 //define('OWA_LOG_PHP_ERRORS', true);
- 
-/** 
+
+/**
  * OBJECT CACHING
  *
- * Override setting to cache objects. Caching will increase performance. 
+ * Override setting to cache objects. Caching will increase performance.
  */
 
 //define('OWA_CACHE_OBJECTS', true);
@@ -96,7 +96,7 @@ define('OWA_PUBLIC_URL', 'http://localhost/dashboard/');
  *
  * Override to load an alternative user configuration
  */
- 
+
 //define('OWA_CONFIGURATION_ID', '1');
 
 
