@@ -538,7 +538,19 @@
       * @return array
       */
      private function getDefaultSettingsArray() {
-
+	 	 
+	 	 if (isset($_SERVER['SERVER_NAME'])) {
+		 	 
+		 	 $mailer_domain = $_SERVER['SERVER_NAME'];
+	 	 } else {
+		 	 
+		 	 if ( defined( 'PUBLIC_URL' ) ) {
+			 	 
+			 	 $parts = parse_url( PUBLIC_URL );
+			 	 $mailer_domain = $parts['host'];
+		 	 }
+	 	 }
+	 	 
          return array(
              'base' => array(
                 'ns'                                => 'owa_',
@@ -631,7 +643,7 @@
                 'wiki_url'                            => 'http://wiki.openwebanalytics.com',
                 'password_length'                    => 4,
                 'modules'                            => array('base'),
-                'mailer-from'                        => 'owa@' . $_SERVER['SERVER_NAME'], // Set default address, because sending from root@localhost wont work
+                'mailer-from'                        => 'owa@' . $mailer_domain, // Set default address, because sending from root@localhost wont work
                 'mailer-fromName'                    => 'OWA Mailer',
                 'mailer-host'                        => '',
                 'mailer-port'                        => '',
@@ -770,7 +782,6 @@
         $this->set('base','images_url', $modules_url);
         $this->set('base','images_absolute_url',$modules_url);
         $this->set('base','log_url',$public_url.'log.php');
-        $this->set('base','api_url',$public_url.'api.php');
         $this->set('base','rest_api_url',$public_url.'api/index.php');
 
         $this->set('base', 'error_log_file', OWA_DATA_DIR . 'logs/errors_'. owa_coreAPI::generateInstanceSpecificHash() .'.txt');
