@@ -74,10 +74,17 @@
             </div>
 
 <div class="owa_reportSectionContent">
-          <div class="section_header">AGIS News</div>
-                Project Visum Engine version 0.56 is now live!
+          <div class="section_header">AGIS Visum News</div>
+                <h3>Project Visum Engine updated to 0.79.0</h3>
+                <h3>Entry and Exit pages now correctly showing<br></h3>
+                <h3>Front end bug now patched<br></h3>
+                <hr>
+                <h4>Previous Updates</h4>
+                Project Visum Engine version 0.56 is now live!<br>                
+                
+                
           </div>
-</div>
+
 <!--
             <div class="owa_reportSectionContent">
                 <div class="section_header">OWA News</div>
