@@ -3,7 +3,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title><?php echo $page_title;?> - Open Web Analytics</title>
+        <title><?php if (isset($page_title)) { $this->out( $page_title . ' - '); } ?>Open Web Analytics</title>
         <?php include($this->getTemplatePath('base','head.tpl'));?>
     </head>
 
@@ -14,7 +14,7 @@
                 <table width="100%">
                     <TR>
                         <TD class="">
-                            <img src="<?php echo $this->makeImageLink('../../wp-content/uploads/2020/04/cropped-agis-10-4-150x117-1.png'); ?>" alt="Open Web Analytics" style="height: 65px;"><BR>
+                            <img src="<?php echo $this->makeImageLink('../agisLogo.png'); ?>" alt="Open Web Analytics" style="height: 65px;"><BR>
                         </TD>
                     </TR>
                 </table>

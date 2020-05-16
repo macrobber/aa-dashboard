@@ -538,7 +538,19 @@
       * @return array
       */
      private function getDefaultSettingsArray() {
-
+	 	 
+	 	 if (isset($_SERVER['SERVER_NAME'])) {
+		 	 
+		 	 $mailer_domain = $_SERVER['SERVER_NAME'];
+	 	 } else {
+		 	 
+		 	 if ( defined( 'PUBLIC_URL' ) ) {
+			 	 
+			 	 $parts = parse_url( PUBLIC_URL );
+			 	 $mailer_domain = $parts['host'];
+		 	 }
+	 	 }
+	 	 
          return array(
              'base' => array(
                 'ns'                                => 'owa_',
@@ -628,10 +640,10 @@
                 'timezone'                            => 'America/Los_Angeles',
                 'log_dom_stream_percentage'            => 50,
                 'owa_wiki_link_template'            => 'http://wiki.openwebanalytics.com/index.php?title=%s',
-                'wiki_url'                            => 'http://wiki.openwebanalytics.com',
+                'wiki_url'                            => 'https://github.com/Open-Web-Analytics/Open-Web-Analytics/wiki',
                 'password_length'                    => 4,
                 'modules'                            => array('base'),
-                'mailer-from'                        => 'owa@' . $_SERVER['SERVER_NAME'], // Set default address, because sending from root@localhost wont work
+                'mailer-from'                        => 'owa@' . $mailer_domain, // Set default address, because sending from root@localhost wont work
                 'mailer-fromName'                    => 'OWA Mailer',
                 'mailer-host'                        => '',
                 'mailer-port'                        => '',
@@ -711,7 +723,7 @@
                 'maxCustomVars'                        => 5,
                 'update_session_user_name'            => true, // updates the session with latest user_name value
                 'log_owa_user_names'                => true,  // logs the OWA user name as the user_name property on events
-                'logo_image_path'                    => '../../wp-content/uploads/2020/04/cropped-agis-10-4-150x117-1.png',
+                'logo_image_path'                    => '../agisLogo.png',
                 'use_64bit_hash'                    => false,
                 'user_id_illegal_chars'                => array( " ", ";", "'", "\"", "|", ")", "("),
                 'archive_old_events'                => true, // used by event queues to archive processed events.
@@ -770,7 +782,6 @@
         $this->set('base','images_url', $modules_url);
         $this->set('base','images_absolute_url',$modules_url);
         $this->set('base','log_url',$public_url.'log.php');
-        $this->set('base','api_url',$public_url.'api.php');
         $this->set('base','rest_api_url',$public_url.'api/index.php');
 
         $this->set('base', 'error_log_file', OWA_DATA_DIR . 'logs/errors_'. owa_coreAPI::generateInstanceSpecificHash() .'.txt');

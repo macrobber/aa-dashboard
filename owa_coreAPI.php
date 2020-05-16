@@ -853,7 +853,7 @@ class owa_coreAPI {
 
         // debug
         owa_coreAPI::debug("logging event $event_type");
-
+		
         if (owa_coreAPI::getSetting('base', 'error_log_level') > 9) {
             owa_coreAPI::debug("PHP Server Global: ".print_r($_SERVER, true));
         }
@@ -870,7 +870,21 @@ class owa_coreAPI {
 
         // do not log if the request is robotic
         $service = owa_coreAPI::serviceSingleton();
-        $bcap = $service->getBrowscap();
+        
+        $ua = '';
+        if ( array_key_exists( 'HTTP_USER_AGENT', $message ) ) {
+	        
+	        $ua = $message['HTTP_USER_AGENT'];
+        }
+        
+        if ( is_object($message) ) {
+	        
+	        $ua = $message->get('HTTP_USER_AGENT');
+        }
+
+        
+        
+        $bcap = $service->getBrowscap( $ua );
         owa_coreAPI::profile(__CLASS__, __FUNCTION__, __LINE__);
         if (!owa_coreAPI::getSetting('base', 'log_robots')) {
 
@@ -1245,6 +1259,25 @@ class owa_coreAPI {
 		// Lookup controler for REST API route.
 		if ( owa_coreAPI::getSetting( 'base', 'request_mode' ) === 'rest_api' ) {
 			
+			// check for rewriten rest params and set module, version, and do params from that
+			$rest_params = self::getRequestParam('rest_params');
+			
+			if ( $rest_params ) {
+			
+				$rest_params = explode('/', $rest_params); 
+				self::debug( 'exploding raw REST params:');
+				self::debug( $rest_params );
+			
+				if ( count( $rest_params ) >= 3 ) {
+					
+					$params['module'] = $rest_params[0];
+					$params['version'] = $rest_params[1];
+					$params['do'] = $rest_params[2];
+					$action = $params['do'];
+				}				
+			}
+			
+			
 			owa_coreAPI::debug('Generating REST API route controller...');
 			
 			if ( owa_lib::keyExistsNotEmpty( 'module', $params ) && owa_lib::keyExistsNotEmpty( 'version', $params ) ) {
@@ -1253,6 +1286,20 @@ class owa_coreAPI {
 				$route = self::lookupRestRoute( $request_method, $params['module'], $params['version'], $action );
 				
 				if ( $route ) {
+					
+					// set the remainer of the rewritten rest params
+					
+					if ( $rest_params ) {
+						
+						// slice off the first three params which have already been set
+						$rest_params = array_slice($rest_params, 3); 
+						
+						foreach ( $rest_params as $k => $v) {
+							
+							$params[ $route['conf'][ 'params_order' ][$k] ] = $rest_params[ $k ];
+						}
+					}
+					
 					$params['rest_route'] = $route;
 					$controller = owa_lib::simpleFactory( $route['class_name'], $route['file'], $params );					
 					return owa_coreAPI::runController( $controller );

@@ -568,9 +568,9 @@ class owa_baseModule extends owa_module {
         $this->registerRestApiRoute( 'v1', 'sites', 'POST', 'owa_addSiteRestController', 'controllers/addSiteRestController.php' );
         $this->registerRestApiRoute( 'v1', 'users', 'GET', 'owa_usersRestController', 'controllers/usersRestController.php' );
         $this->registerRestApiRoute( 'v1', 'users', 'POST', 'owa_addUserRestController', 'controllers/addUserRestController.php' );
-		$this->registerRestApiRoute( 'v1', 'users', 'DELETE', 'owa_deleteUserRestController', 'controllers/deleteUserRestController.php' );
+		$this->registerRestApiRoute( 'v1', 'users', 'DELETE', 'owa_deleteUserRestController', 'controllers/deleteUserRestController.php', [ 'params_order' => ['user_id'] ] );
 		$this->registerRestApiRoute( 'v1', 'siteUsers', 'POST', 'owa_siteAddAllowedUserRestController', 'controllers/siteAddAllowedUserRestController.php' );
-		$this->registerRestApiRoute( 'v1', 'reports', 'GET', 'owa_reportsRestController', 'controllers/reportsRestController.php' );
+		$this->registerRestApiRoute( 'v1', 'reports', 'GET', 'owa_reportsRestController', 'controllers/reportsRestController.php', [ 'params_order' => ['report_name'] ] );
     }
 
     /**
@@ -682,6 +682,19 @@ class owa_baseModule extends owa_module {
                 'column'        => 'visitor_id'
 
             ));
+            
+            $this->registerMetricDefinition(array(
+                'name'            => 'visitors',
+                'label'            => 'Visitors',
+                'description'    => 'The total number of visitors.',
+                'group'            => 'Site Usage',
+                'entity'        => $factEntity,
+                'metric_type'    => 'count',
+                'data_type'        => 'integer',
+                'column'        => 'visitor_id'
+
+            ));
+
         }
 
         // visits
@@ -712,6 +725,7 @@ class owa_baseModule extends owa_module {
 
                 ));
 
+/*
         $this->registerMetric(
             'visitors',
             array(
@@ -723,7 +737,7 @@ class owa_baseModule extends owa_module {
             'The total number of visitors',
             'Site Usage'
         );
-
+*/
         $this->registerMetric(
             'newVisitors',
             'base.newVisitors',
@@ -732,6 +746,7 @@ class owa_baseModule extends owa_module {
             'The total number of new visitors',
             'Site Usage'
         );
+
 
         $this->registerMetric(
             'repeatVisitors',
@@ -1250,17 +1265,6 @@ class owa_baseModule extends owa_module {
             'site',
             'The name of the site.'
         );
-
-        /*
-        $this->registerDimension(
-            'siteId',
-            'base.site',
-            'site_id',
-            'Site ID',
-            'site',
-            'The ID of the site.'
-        );
-        */
 
         $this->registerDimension(
             'siteId',
@@ -2020,17 +2024,6 @@ class owa_baseModule extends owa_module {
             'Visits To Purchase',
             'ecommerce',
             'The number of visits before the transaction occurred.',
-            '',
-            true
-        );
-
-        $this->registerDimension(
-            'visitsToTransaction',
-            'base.commerce_transaction_fact',
-            'num_prior_sessions',
-            'Visits To Purchase',
-            'ecommerce',
-            'The number of visits prior to an e-commerce transaction.',
             '',
             true
         );

@@ -59,7 +59,7 @@ define('OWA_AUTH_SALT', 'rbRGpx28:ku&jq<e,oab7:m>qb/DO*C@j=2/o<9wF]3gYwp,j/^#Epq
  * Don't forget the slash at the end.
  */
  
-define('OWA_PUBLIC_URL', 'http://primenumberdesigns.com/dashboard/');  
+define('OWA_PUBLIC_URL', 'https://primenumberdesigns.com/dashboard/');  
 
 /** 
  * OWA ERROR HANDLER

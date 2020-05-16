@@ -1,7 +1,7 @@
 <TD>
     <div class="owa_visitInfobox" style="width:auto;">
 
-        <p class="owa_visitInfoboxTitle"><?php echo date("D M j G:i:s T",$row['session_timestamp']);?> &raquo; <?php echo $row['host_host'];?></p>
+        <p class="owa_visitInfoboxTitle"><?php echo date("D M j G:i:s T",$row['session_timestamp']);?> &raquo; <?php echo $row['host_host']; if (! empty($row['ip_address']) ) { echo ' ('.$row['ip_address'].')';}?></p>
 
         <table class="owa_visitInfoboxItemContainer" cellspacing="0" width="100%">
             <TR>
@@ -9,10 +9,27 @@
                     <table class="owa_userInfobox">
                         <TD valign="top">
 
-                            <?php if ($row['session_is_new_visitor'] == true): ?>
-                             <img src="<?php echo $this->makeImageLink('base/i/icon_new.png');?>" alt="New Visitor"><BR>
-                            <?php endif;?>
-                            <img class="owa_avatar" src="<?php echo $this->getAvatarImage($row['visitor_user_email']);?>" width="30" height="30">
+                            <?php 
+	                            
+	                        if ($row['session_is_new_visitor'] == true) {
+	             		    
+	             		        echo '<i class="owa_avatar fas fa-user-plus fa-2x"></i>';
+                            
+                            } else { 
+	                            
+	                            $avatar = $this->getAvatarImage($row['visitor_user_email']);
+	                            if ( $avatar ) {
+		                    		
+		                    		echo '<img class="owa_avatar" src="'. $avatar.'" width="30" height="30">';        
+		                            
+	                            } else {
+		                            
+		                            echo '<i class="owa_avatar fas fa-user fa-2x"></i>';
+	                            }
+	                            
+                            }
+                            
+                            ?>
                         </TD>
                         <TD valign="top" class="owa_userLabel" style="width:auto;">
 
@@ -37,7 +54,7 @@
                 <TD class="owa_visitInfoboxItem">
 
                     <?php $this->renderKpiInfobox(
-                        $this->choose_browser_icon($row['browser_type']),
+	                        '<i title="'. $row['browser_user_agent'] .'" class=" '. $this->choose_browser_icon($row['browser_type']) . '"></i>',
                         'Browser Type',
                         $this->makeLink(array('session_id' => $row['session_id'], 'do' => 'base.reportVisit'), true),
                         'visitSummaryKpi'

@@ -101,6 +101,7 @@ class owa_resultSetManager extends owa_base {
     var $errors = array();
     var $formatters = array();
     var $segment;
+    var $pagination;
 
     function __construct($db = '') {
 
@@ -1604,12 +1605,7 @@ if ( ! in_array($item['name'], $this->allMetrics) ) {
 	   		 $query_params['do'] = 'reports';
 	   		 $query_params['module'] = 'base';
 	   		 $query_params['version'] = 'v1';
-	   		 $query_params['apiKey'] = owa_coreAPI::getCurrentUser()->getUserData('api_key');
-        } else {
-	        $api_url = owa_coreAPI::getSetting('base', 'api_url');
-			// add api command
-			$query_params['do'] = 'getResultSet';
-		}
+        }
         
       
         //add format
