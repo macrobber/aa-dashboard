@@ -3,13 +3,13 @@
     content: "\f0d7"
 }
 </style>
-<nav class="navbar navbar-expand-md navbar-light bg-light p-0">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
 
     <div class="align-content-center align-items-center d-flex d-md-none justify-content-around">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <span>Menu</span>
+        <span class="ml-2">Menu</span>
     </div>
     <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="nav">

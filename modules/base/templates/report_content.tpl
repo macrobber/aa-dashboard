@@ -5,18 +5,12 @@
 </div>
 
 <div class="clear"></div>
-<BR>
 
-<table style="width:100%;margin-top:;">
-    <tr>
-        <td valign="top" style="width:50%;">
-
-        <div class="owa_reportSectionContent">
-
-
-            <div class="owa_reportSectionContent" style="min-width:350px;">
+<div>
+    <div class="row">
+        <div class="col-12 col-md">
+            <div class="owa_reportSectionContent">
                 <div class="owa_reportSectionHeader">Top Pages</div>
-
                 <div id="top-pages"></div>
                 <div class="owa_genericHorizonalList owa_moreLinks">
                     <UL>
@@ -26,10 +20,9 @@
                     </UL>
                 </div>
             </div>
+        </div>
 
-        </td>
-
-        <td valign="top" style="width:50%;">
+        <div class="col-12 col-md">
             <div class="owa_reportSectionHeader">Content Reports</div>
                 <div class="relatedReports">
                     <UL>
@@ -48,7 +41,10 @@
                     </UL>
                 </div>
             </div>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md">
             <div class="owa_reportSectionContent" style="min-width:350px;">
                 <div class="owa_reportSectionHeader">Top Page Types</div>
                 <div id="top-pagetypes" style="width:auto;margin-top:-10px;"></div>
@@ -60,15 +56,14 @@
                     </UL>
                 </div>
             </div>
-
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
 
 <script>
 //OWA.setSetting('debug', true);
 
-var aurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
+var aurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
                                                 'metrics' => 'visits,pageViews,bounceRate',
                                                 'dimensions' => 'date',
                                                 'sort' => 'date',
@@ -82,7 +77,7 @@ OWA.items.rsh.asyncQueue.push(['makeMetricBoxes', 'trend-metrics']);
 OWA.items.rsh.asyncQueue.push(['renderTemplate','#content-headline-template', {data: OWA.items.rsh}, 'replace', 'content-headline']);
 OWA.items.rsh.load(aurl);
 
-var toppagesurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
+var toppagesurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
                                                 'metrics' => 'visits',
                                                 'dimensions' => 'pageTitle,pageUrl',
                                                 'sort' => 'visits-',
@@ -96,7 +91,7 @@ OWA.items.toppages.options.grid.excludeColumns = ['pageUrl'];
 OWA.items.toppages.asyncQueue.push(['refreshGrid']);
 OWA.items.toppages.load(toppagesurl);
 
-var toppagetypesurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
+var toppagetypesurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
                                                 'metrics' => 'visits',
                                                 'dimensions' => 'pageType',
                                                 'sort' => 'visits-',
@@ -116,6 +111,6 @@ OWA.items.toppagetypes.load(toppagetypesurl);
 <script type="text/x-jqote-template" id="content-headline-template">
 <![CDATA[
     There were <*= this.data.resultSet.aggregates.pageViews.value *> <* if (this.data.resultSet.aggregates.pageViews.value > 1) {this.label = 'page views';} else {this.label = 'page view';} *> <*= this.label *> of all pages.
-]]> 
+]]>
 </script>
 

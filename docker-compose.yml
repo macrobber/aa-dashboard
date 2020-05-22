@@ -10,10 +10,12 @@ services:
             - ./:/var/www/html
         environment:
             OWA_PUBLIC_URL: http://localhost:8083/
-            OWA_DB_NAME: agisowa
+            OWA_DB_NAME: owa
             OWA_DB_HOST: database
             OWA_DB_USER: mack
             OWA_DB_PASSWORD: Kllo555
+        depends_on:
+            - database
         networks:
             db:
     database:
@@ -23,7 +25,7 @@ services:
             - /var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: Kllo555
-            MYSQL_DATABASE: agisowa
+            MYSQL_DATABASE: owa
             MYSQL_USER: mack
             MYSQL_PASSWORD: Kllo555
         networks:
