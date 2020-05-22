@@ -1,4 +1,0 @@
-caches/*
-logs/*
-!.gitkeep
-*.php

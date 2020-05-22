@@ -7,16 +7,17 @@
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
-
-
+  
+  
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
-
+  
     <link href="analyticsCss.css" rel="stylesheet" type="text/css" media="all">
     <style>
         html,
@@ -49,7 +50,7 @@
 </div>
 <button id="myBtn" style="display: none">Open Modal</button>
 
-</div>
+</div>  
 <div class="row">
           <br><br>
           <div class="col-sm-4">
@@ -57,7 +58,7 @@
               <p>Total Visitors <sup>1</sup></p>
             </center>
             <div class="" id="agisTotalVisitorChart" style="font-size: 36px; text-align: center;"></div>
-
+            
           </div>
           <div class="col-sm-4">
             <center>
@@ -99,6 +100,6 @@
         <p><sup>4</sup><i> Percentage of users who opened chat.</i></p>
         <p><sup>5</sup><i> Average number of questions asked across all users.</i></p>
 
-</div>
+</div>  
 <script type="module" src="aaServerSide.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUX4tS-wopC34UQ0kI14s9OWu8FOYpU1g" type="text/javascript"></script>

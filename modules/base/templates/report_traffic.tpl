@@ -97,7 +97,7 @@
 
 var aurl = '<?php echo $this->makeApiLink(array('module'	=> 'base',
 	    										'version'	=>'v1',
-	    										'do' => 'reports',
+	    										'do' => 'reports', 
                                                 'metrics' => 'visits',
                                                 'dimensions' => 'date',
                                                 'sort' => 'date',
@@ -109,7 +109,7 @@ OWA.items.rsh.asyncQueue.push(['makeAreaChart', [{x:'date',y:'visits'}]]);
 OWA.items.rsh.asyncQueue.push(['renderTemplate','#visits-headline-template', {data: OWA.items.rsh}, 'replace', 'visits-headline']);
 OWA.items.rsh.load(aurl);
 
-var tturl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
+var tturl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
                                                         'metrics' => 'visits',
                                                         'dimensions' => 'date',
                                                         'sort' => 'date',
@@ -122,7 +122,7 @@ OWA.items.tt.asyncQueue.push(['makeMetricBoxes','','','Visits From Search Engine
 
 OWA.items.tt.load(tturl);
 
-var tt1url = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
+var tt1url = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
                                                         'metrics' => 'visits',
                                                         'dimensions' => 'date',
                                                         'sort' => 'date',
@@ -134,7 +134,7 @@ OWA.items.tt1.asyncQueue.push(['makeMetricBoxes','','','Visits From Direct Navig
 OWA.items.tt1.load(tt1url);
 
 
-var tt2url = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
+var tt2url = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
                                                         'metrics' => 'visits',
                                                         'dimensions' => 'date',
                                                         'sort' => 'date',
@@ -146,7 +146,7 @@ OWA.items.tt2 = new OWA.resultSetExplorer('trend-metrics');
 OWA.items.tt2.asyncQueue.push(['makeMetricBoxes','','','Visits From Referrals']);
 OWA.items.tt2.load(tt2url);
 
-var vmurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
+var vmurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
                                                                     'metrics' => 'visits',
                                                                     'dimensions' => 'medium',
                                                                     'sort' => 'visits-',
@@ -161,7 +161,7 @@ OWA.items.vm.asyncQueue.push(['makePieChart']);
 OWA.items.vm.load(vmurl);
 
 
-var topkeywordsurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
+var topkeywordsurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
                                                 'metrics' => 'visits',
                                                 'dimensions' => 'referralSearchTerms',
                                                 'sort' => 'visits-',
@@ -174,7 +174,7 @@ OWA.items.topkeywords.addLinkToColumn('referralSearchTerms', '<?php echo $this->
 OWA.items.topkeywords.asyncQueue.push(['refreshGrid']);
 OWA.items.topkeywords.load(topkeywordsurl);
 
-var topreferralsurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
+var topreferralsurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
                                                 'metrics' => 'visits',
                                                 'dimensions' => 'referralPageUrl',
                                                 'sort' => 'visits-',
@@ -209,5 +209,5 @@ OWA.items.topsources.load(topsources_url);
 <script type="text/x-jqote-template" id="visits-headline-template">
 <![CDATA[
     There were <*= this.data.resultSet.aggregates.visits.formatted_value *> <* if (this.data.resultSet.aggregates.visits.value > 1) {this.label = 'visits';} else {this.label = 'visit';} *> <*= this.label *> from all mediums.
-]]>
+]]> 
 </script>

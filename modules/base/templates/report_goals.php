@@ -1,21 +1,21 @@
 <div class="owa_reportSectionContent">
-
+    
     <div id="trend-chart"></div>
 
-
-    <div id="trend-title" class="owa_reportHeadline"></div>
+    
+    <div id="trend-title" class="owa_reportHeadline"></div>    
     <div id="trend-metrics" style="height:auto;width:auto;<?php if(isset($pie)) {echo 'float:right';}?>"></div>
     <div style="clear:both;"></div>
     <script>
-
-        var trendurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
-                                                                    'metrics' => $metrics,
-                                                                    'dimensions' => 'date',
+        
+        var trendurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
+                                                                    'metrics' => $metrics, 
+                                                                    'dimensions' => 'date', 
                                                                     'sort' => 'date',
                                                                     'format' => 'json',
                                                                     'constraints' => $constraints
                                                                     ),true);?>';
-
+                                                                      
         var trend = new OWA.resultSetExplorer('trend-chart');
         trend.options.sparkline.metric = 'goalCompletionsAll';
         <?php if ($trendTitle):?>
@@ -25,49 +25,49 @@
         trend.options.metricBoxes.width = '150px';
         trend.asyncQueue.push(['makeMetricBoxes' , 'trend-metrics']);
         trend.load(trendurl);
-
+        
     </script>
 
 </div>
 
-<div>
-    <div class="row">
-        <div class="col-12 col-md">
+<table width="100%">
+    <TR>
+        <TD valign="top" style="width:50%;">
             <div class="owa_reportSectionContent">
                 <div class="section_header">Goal Performance</div>
                 <div style="min-width:250px;" id="goalMetrics"></div>
                 <?php if ($goal_metrics): ?>
                 <script>
-
-                var aurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
-                                                                  'metrics' => $goal_metrics,
+                
+                var aurl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
+                                                                  'metrics' => $goal_metrics, 
                                                                   'format' => 'json'), true);?>';
-
+                                                                  
                 rsh = new OWA.resultSetExplorer('goalMetrics');
                 rsh.asyncQueue.push(['makeMetricBoxes' , 'goalMetrics']);
                 rsh.load(aurl, 'grid');
                 </script>
                 <?php endif;?>
             </div>
-
-        </div>
-
-        <div class="col-12 col-md">
+    
+        </TD>
+        
+        <td valign="top">
             <div class="owa_reportSectionContent">
                 <div class="section_header">Related Reports</div>
                 <div class="relatedReports">
                 <UL>
                     <li>
-
+                        
                         <a href="<?php echo $this->makeLink(array('do' => 'base.reportGoalFunnel'), true);?>">Conversion Funnels</a> - Goal funnel Visualization.
-
+                        
                     </li>
                 </UL>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </td>
+    </TR>
+</table>
 
 <?php require_once('js_report_templates.php');?>
 
