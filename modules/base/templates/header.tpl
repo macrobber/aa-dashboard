@@ -1,11 +1,13 @@
 
-<div id="owa_header">
-    
-    <span class="owa_logo"><img src="<?php echo $this->makeImageLink( owa_coreAPI::getSetting( 'base', 'logo_image_path' ) ); ?>" style="height: 65px;" alt="Open Web Analytics"></span>
-    <span style="color: #76bd2a; font-size: 24px; padding-left: 34px;">AGIS Visum Engine</span>
-     &nbsp
+<div id="owa_header" class="nav">
+
+    <div class="align-items-center col-12 col-md d-flex">
+        <img src="<?php echo $this->makeImageLink( owa_coreAPI::getSetting( 'base', 'logo_image_path' ) ); ?>" style="height: 65px;" alt="Open Web Analytics">
+        <span style="color: #76bd2a; font-size: 24px; line-height: 1.2em">AGIS Visum Engine</span>
+    </div>
+
     <!-- <p style="color: #76bd2a; position: absolute; top: 6px; left: 119px; font-size: 27px;">AGIS Visum Engine </p> -->
-    <span class="owa_navigation">
+    <span class="owa_navigation col-md col-12 text-center">
         <UL>
             <?php if ($this->getCurrentUser()->isCapable('view_site_list')): ?>
                 <LI><a href="<?php echo $this->makeLink(array('do' => 'base.sites'));?>">Reporting</a></LI>
@@ -21,7 +23,7 @@
         </UL>
     </span>
     <?php $cu = $this->getCurrentUser(); ?>
-    <span class="user-greating" style="">
+    <span class="user-greating col text-right">
         Hi, <?php $this->out( $cu->getUserData('user_id') );?> ! &bull;
         <?php if ( ! owa_coreAPI::getSetting( 'base', 'is_embedded' ) ):?>
 
