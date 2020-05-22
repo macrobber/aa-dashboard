@@ -24,16 +24,16 @@
 </div>
 
 
-    <div>
-        <div class="row">
-            <div class="col-12 col-md">
+    <table width="100%">
+        <TR>
+            <td width="50%" valign="top">
                 <div class="owa_reportSectionContent" style="">
                     <div class="owa_reportSectionHeader">Latest Visits</div>
                     <?php include('report_latest_visits.tpl')?>
                     <?php echo $this->makePaginationFromResultSet($visits, array('do' => 'base.reportVisitors'), true);?>
                 </div>
-            </div>
-            <div class="col-12 col-md">
+            </td>
+            <TD width="50%" valign="top">
                 <div class="owa_reportSectionContent">
                     <div class="section_header inline_h2">Visitor Reports</div>
                     <P>
@@ -90,14 +90,14 @@
                     </script>
                 </div>
 
-            </div>
-        </div>
-    </div>
+            </TD>
+        </TR>
+    </table>
 
 <?php require_once('js_report_templates.php');?>
 
 <script type="text/x-jqote-template" id="visitors-headline-template">
 <![CDATA[
     There were <*= this.data.resultSet.aggregates.uniqueVisitors.formatted_value *> <* if (this.data.resultSet.aggregates.uniqueVisitors.value > 1) {this.label = 'visitors';} else {this.label = 'visitor';} *> <*= this.label *> to this web site.
-]]>
+]]> 
 </script>

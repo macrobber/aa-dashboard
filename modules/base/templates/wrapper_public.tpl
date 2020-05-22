@@ -3,7 +3,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title><?php echo $page_title;?>Open Web Analytics</title>
+        <title><?php if (isset($page_title)) { $this->out( $page_title . ' - '); } ?>Open Web Analytics</title>
         <?php include($this->getTemplatePath('base','head.tpl'));?>
     </head>
 

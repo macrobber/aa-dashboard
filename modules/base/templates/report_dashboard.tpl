@@ -6,9 +6,10 @@
 
 </div>
 <div class="clear"></div>
-<div>
-    <div class="row">
-        <div class="col">
+<table style="padding:0px;width:auto;">
+    <TR>
+        <TD style="width:50%" valign="top">
+
             <div class="owa_reportSectionContent">
                 <div class="owa_reportSectionHeader">Top Content</div>
 
@@ -17,27 +18,16 @@
                     <a href="<?php echo $this->makeLink(array('do' => 'base.reportPages'), true);?>">View Full Report &raquo;</a>
                 </div>
             </div>
-        </div>
-        <div class="col">
+
+           
             <div class="owa_reportSectionContent">
                 <div class="section_header">Latest Visits</div>
                 <?php include('report_latest_visits.tpl')?>
             </div>
-        </div>
-        <div class="col">
-            <div class="owa_reportSectionContent">
-                <div class="owa_reportSectionHeader">Top Referrers</div>
 
-                <div id="top-referers" style="min-width:350px"></div>
-                <div class="owa_moreLinks">
-                    <a href="<?php echo $this->makeLink(array('do' => 'base.reportReferringSites'), true);?>">View Full Report &raquo;</a>
-                </div>
-                <div id="test"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
+        </TD>
+        <TD style="width:50%" valign="top">
+
             <?php //if ($actions) { ?>
             <div class="owa_reportSectionContent" style="min-width:200px; height:;">
                 <div class="section_header">Actions</div>
@@ -45,7 +35,7 @@
                 <div id="actions-trend" style="width:;height:;"></div>
 
 
-
+                
 
                 <div class="owa_genericHorizontalList owa_moreLinks">
                     <UL>
@@ -57,41 +47,53 @@
                 <div class="clear"></div>
             </div>
             <?php //} ?>
-        </div>
-        <div class="col">
-            <div class="owa_reportSectionContent">
+			<table width="100%">
+				<TR>
+					<TD>
+			 <span class="owa_reportSectionContent">
                 <div class="owa_reportSectionHeader">Visitor Types</div>
                 <div id="visitor-types" class="owa_piechart"></div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="owa_reportSectionContent">
+            </span>
+					</TD>
+					<TD>
+            <span class="owa_reportSectionContent">
                 <div class="owa_reportSectionHeader">Traffic Sources</div>
                 <div id="visitor-mediums" class="owa_piechart"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
+            </span>
+					</TD>
+				</TR>
+			</table>
             <div class="owa_reportSectionContent">
-                <div class="section_header">AGIS Visum News</div>
+                <div class="owa_reportSectionHeader">Top Referrers</div>
+
+                <div id="top-referers" style="min-width:350px"></div>
+                <div class="owa_moreLinks">
+                    <a href="<?php echo $this->makeLink(array('do' => 'base.reportReferringSites'), true);?>">View Full Report &raquo;</a>
+                </div>
+                <div id="test"></div>
+            </div>
+
+<div class="owa_reportSectionContent">
+          <div class="section_header">AGIS Visum News</div>
                 <h3>Project Visum Engine updated to 0.79.0</h3>
                 <h3>Entry and Exit pages now correctly showing<br></h3>
                 <h3>Front end bug now patched<br></h3>
                 <hr>
                 <h4>Previous Updates</h4>
-                Project Visum Engine version 0.56 is now live!<br>
-            </div>
-        </div>
-        <!--<div class="col">
+                Project Visum Engine version 0.56 is now live!<br>                
+                
+                
+          </div>
 
-                <div class="owa_reportSectionContent">
-                    <div class="section_header">OWA News</div>
-                    <?php echo $this->getWidget('base.widgetOwaNews','',false);?>
-                </div>
-        </div>-->
-    </div>
-</div>
+<!--
+            <div class="owa_reportSectionContent">
+                <div class="section_header">OWA News</div>
+                <?php echo $this->getWidget('base.widgetOwaNews','',false);?>
+            </div>
+-->
+        </TD>
+    </TR>
+</table>
 
 <script>
 
@@ -116,21 +118,21 @@
 
     rsh.load(aurl);
     OWA.items['<?php echo $dom_id;?>'].registerResultSetExplorer('rsh', rsh);
-
-	var burl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1',
-                                                              'metrics' => 'actions',
-                                                              'dimensions' => 'actionGroup,actionName',
-                                                              'sort' => 'actions-',
+	
+	var burl = '<?php echo $this->makeApiLink(array('do' => 'reports', 'module' => 'base', 'version' => 'v1', 
+                                                              'metrics' => 'actions', 
+                                                              'dimensions' => 'actionGroup,actionName', 
+                                                              'sort' => 'actions-', 
                                                               'resultsPerPage' => 5,
                                                               'format' => 'json'), true);?>';
-
+ 
 	var bsh = new OWA.resultSetExplorer('actions-trend');
 	bsh.options.grid.showRowNumbers = false;
 	bsh.addLinkToColumn('actionGroup', '<?php echo $this->makeLink(array('do' => 'base.reportActionGroup', 'actionGroup' => '%s'), true);?>', ['actionGroup']);
 	bsh.asyncQueue.push(['refreshGrid']);
 	bsh.load(burl);
 	OWA.items['<?php echo $dom_id;?>'].registerResultSetExplorer('bsh', bsh);
-
+	
 (function() {
     var tcurl = '<?php echo $this->makeApiLink(array('module'	=> 'base',
 	    											'version'	=>'v1',
