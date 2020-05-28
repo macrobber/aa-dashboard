@@ -31,12 +31,12 @@ jQuery(document).ready(function(){
 <?php endif;?>
 </script>
 
-<div id="<?php echo $dom_id;?>" class="container-fluid">
+<div id="<?php echo $dom_id;?>" class="container-fluid owa_reportContainer">
 
 
         <div class="row">
             <?php if ( ! $this->get( 'hideReportingNavigation' ) ):?>
-            <div class="col col-md-2 p-0 mb-4">
+            <div class="col col-md-2 p-0 mb-4 owa_reportLeftNavColumn">
                 <div>
                     <div id="owa_reportNavPanel">
                         <?php echo $this->makeNavigationMenu($top_level_report_nav, $currentSiteId, $params['do']);?>
@@ -48,13 +48,13 @@ jQuery(document).ready(function(){
 
                 <?php if ( ! $this->get( 'hideSitesFilter' ) ):?>
                 <div class="row reportSiteFilter mb-2">
-                    <div class="col">
+                    <div class="col reportSectionContainer">
                         <?php include('filter_site.php');?>
                     </div>
                 </div>
                 <?php endif;?>
                 <div class="row">
-                    <div class="col">
+                    <div class="col reportSectionContainer">
                         <div id="owa_timePeriodControl" class="owa_reportPeriod" style="float:right;"></div>
                         <div id="liveViewSwitch" style="width:auto;float:right; padding-right:30px;"></div>
                         <div class="owa_reportTitle"><?php echo $title;?><span class="titleSuffix"><?php echo $this->get('titleSuffix');?></span></div>

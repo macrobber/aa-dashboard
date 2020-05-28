@@ -7,7 +7,7 @@
 
 <?php if ($tracked_sites): ?>
     <?php foreach ($tracked_sites as $site):?>
-        <div>
+        <div class="owa_reportSectionContent">
             <div class="my-3 card">
                 <div class="card-body row">
                     <div class="col-md-auto text-center">
