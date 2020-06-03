@@ -1,1 +1,64 @@
 /*  AGIS-OWA Master CSS File */
+.reportSectionContainer{
+   /*  width: 450px;  */
+}
+
+.agis-mobile{
+    width: 225px;
+    display: none;
+    transition: width 2s;
+    
+}
+.reportSectionContainer{
+    padding: 5px;
+    margin: 2px;
+}
+.owa_admin_nav_subgroup_item{
+    background-color: #bfbfbf;
+}
+.owa_admin_nav_subgroup_item {
+    border-width: 1px;
+    border-style: solid;
+}
+#agis-mobile-menu{
+    background-color: #dfedff !important;
+    z-index: 100;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: #dfedff !important;
+    margin-left: 2px;
+}
+
+.agis-mobile-show{
+    display: block;
+}
+
+#owa_reportNavPanel{
+    width: 180px !important;
+}
+.agis-menu-display{
+    width:200px; 
+    height: 30px; 
+    font-size:16px;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }

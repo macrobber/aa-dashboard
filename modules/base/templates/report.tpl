@@ -37,22 +37,27 @@ jQuery(document).ready(function(){
 
         <TR>
             <?php if ( ! $this->get( 'hideReportingNavigation' ) ):?>
-            <TD valign="top" class="owa_reportLeftNavColumn">
+            <button id="agis-mobile-menu-button" class="fa fa-caret-down agis-menu-display" >	&nbsp;Menu</button>
+            
+            <TD valign="top" id="agis-mobile-menu" class="owa_reportLeftNavColumn agis-mobile">
+            
                 <div>
                     <div id="owa_reportNavPanel">
                         <?php echo $this->makeNavigationMenu($top_level_report_nav, $currentSiteId, $params['do']);?>
                     </div>
                 </div>
+            
             </TD>
+            
             <?php endif;?>
             <TD valign="top" width="*">
 
                 <?php if ( ! $this->get( 'hideSitesFilter' ) ):?>
-                <div class="reportSectionContainer reportSiteFilter" style="margin-bottom:20px;">
+                <div id="agis-site-filter" class="reportSectionContainer reportSiteFilter" style="margin-bottom:20px;">
                 <?php include('filter_site.php');?>
                 </div>
                 <?php endif;?>
-                <div class="reportSectionContainer">
+                <div id="agis-main-container" class="reportSectionContainer">
                     <div id="owa_timePeriodControl" class="owa_reportPeriod" style="float:right;"></div>
                     <div id="liveViewSwitch" style="width:auto;float:right; padding-right:30px;"></div>
                     <div class="owa_reportTitle"><?php echo $title;?><span class="titleSuffix"><?php echo $this->get('titleSuffix');?></span></div>
