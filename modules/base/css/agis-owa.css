@@ -21,13 +21,15 @@
     border-style: solid;
 }
 #agis-mobile-menu{
-    background-color: #dfedff !important;
+    background-color: #b8cabe !important;
     z-index: 100;
     border-width: 1px;
     border-style: solid;
     border-color: black;
-    background-color: #dfedff !important;
-    margin-left: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 11px;
+    width: 225px !important;
+    margin-top: -7px;;
 }
 
 .agis-mobile-show{
@@ -36,13 +38,6 @@
 
 #owa_reportNavPanel{
     width: 180px !important;
-}
-.agis-menu-display{
-    width:200px; 
-    height: 30px; 
-    font-size:16px;
-    margin-top: 5px;
-    margin-left: 3px;
 }
 table { 
     width: 100%; 
@@ -62,3 +57,97 @@ table {
     border: 1px solid #ccc; 
     text-align: left; 
   }
+  .agis-menu-display{
+    width:200px; 
+    height: 30px; 
+    font-size:16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 12px;
+    background-color: white;
+    width: 146px;
+}
+.owa table.management th {
+    background-color: #6b687d ;
+}
+.owa table.management td {
+    /* background-color: #6b687d ; */
+}
+
+  @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    .agis-menu-display{
+        width:200px; 
+        height: 30px; 
+        font-size:16px;
+        margin-top: -35px;
+        margin-left: 12px;
+        background-color: white;
+        width: 146px;
+    }
+    .relatedReports{
+        display: none;
+    }
+    
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+        display: block; 
+        width: 99% !important;
+    }
+    tr:nth-of-type(odd) {
+        background: #fff;
+    }
+    table {
+        border-spacing: 0px;
+        border-color: white;
+    }
+    th {
+        border: 0px !important;
+    }
+    td {
+        border: 0px !important;
+    }
+    th {
+        display:none;
+    }
+	.legend{
+        display: none;
+    }
+
+    .owa_visitInfobox{
+        background-color: #fff;
+    }
+    #BrowserType_kpibox{
+        margin-top: 14px;
+    }
+    #PagesViewed_kpibox{
+        background-color: #b8cabe;
+        
+    }
+    #BrowserType_kpibox{
+        background-color: #b8cabe;
+    }
+    #VisitLength_kpibox{
+        background-color: #b8cabe;
+    }
+    #PriorVisits_kpibox{
+        background-color: #b8cabe;
+    }
+    .inline_h4{
+        float: left;
+    }
+    .ui-datepicker-calendar{
+        display: none;
+    }
+    #base-reportDashboard{
+        background-color: white !important;
+    }
+    .owa table.management{
+        padding-right: 5px !important;
+    }
+    .owa_visitInfoboxDocContainer{
+        margin-top: -29px;
+    }
+}

@@ -7,7 +7,7 @@
 
 <?php if ($tracked_sites): ?>
     <?php foreach ($tracked_sites as $site):?>
-    <div class="owa_reportSectionContent" style="min-width:500px;">
+    <div class="owa_reportSectionContent" style="width: 90%;">
     <TABLE width="" border="0" class="management">
         <thead></thead>
         <tbody>
