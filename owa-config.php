@@ -47,10 +47,10 @@ define('OWA_DB_PASSWORD', 'K!llo555'); // database user's password
  *
  * Change these to different unique phrases.
  */
-define('OWA_NONCE_KEY', ':N>r-Xe].LdHG&Wk#n]x1,_C2-N-(Y|dU]e cCC1aMCIY_tS}_6=q?;-BOvV;+;.');  
-define('OWA_NONCE_SALT', 'l7Y 9I^=iaR5zPyh#4ImA>#bFG!@<QwlF3(iO@>&Li[t6Xfa@MhWPgEsF98bVWWn');
-define('OWA_AUTH_KEY', 'Sr]5&0+FruZR`pl7H[>KJ,tS)SL5`YCb[71)B,u+yx*cPiWoZ4y@t&f6/2if?/l.');
-define('OWA_AUTH_SALT', 'rbRGpx28:ku&jq<e,oab7:m>qb/DO*C@j=2/o<9wF]3gYwp,j/^#EpqP&^5l~op@');
+define('OWA_NONCE_KEY', '439824924729034');  
+define('OWA_NONCE_SALT', 'ad9f8adf997973a');
+define('OWA_AUTH_KEY', 'a0fj093248aadff98u');
+define('OWA_AUTH_SALT', 'dfj9340809adf349');
 
 /** 
  * PUBLIC URL
@@ -59,8 +59,7 @@ define('OWA_AUTH_SALT', 'rbRGpx28:ku&jq<e,oab7:m>qb/DO*C@j=2/o<9wF]3gYwp,j/^#Epq
  * Don't forget the slash at the end.
  */
  
-define('OWA_PUBLIC_URL', 'https://primenumberdesigns.com/dashboard/');  
-define( 'OWA_MAXMIND_DATA_DIR', './var/www/html/primenumberdesigns/dashboard/owa-data/maxmind/');
+define('OWA_PUBLIC_URL', 'https://dev.agisanalytics.com/aa-dashboard/');  
 
 /** 
  * OWA ERROR HANDLER
